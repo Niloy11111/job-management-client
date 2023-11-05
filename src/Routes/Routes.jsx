@@ -4,6 +4,8 @@ import Root from "../Root/Root";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import HomePage from "../Pages/Home/HomePage";
 import Login from "../Pages/Login/Login";
+import AddAJob from "../AddAJob/AddAJob";
+import SingleJobDetails from "../SingleJobDetails/SingleJobDetails";
 
 
 
@@ -15,12 +17,24 @@ export const router = createBrowserRouter([
         children : [
             {
                 path : '/',
-                element : <HomePage></HomePage>
+                element : <HomePage></HomePage>,
+                
             },
             {
                 path : '/login',
                 element : <Login></Login>
-            }
+            },
+            {
+                path : '/addAJob',
+                element : <AddAJob></AddAJob>
+            },
+            {
+                path : '/details/:id',
+                loader : ({params}) => fetch(`http://localhost:5000/alljobs/${params.id} `),
+                element : <SingleJobDetails></SingleJobDetails>
+            },
+        
+
         ]
     }
 ])
