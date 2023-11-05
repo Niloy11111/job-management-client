@@ -76,7 +76,7 @@ const NavBar = () => {
         <div className="flex  items-center flex-col lg:flex-row  justify-between mb-14 ">
 
             <div className="flex items-center">
-                <img className="w-[130px] bg-[#FFF] mb-4" src="https://imgd.aeplcdn.com/0x0/cw/static/icons/new-header/logo.svg" alt="" />
+               <h2 className="text-3xl font-bold font-serif"> Job Portal</h2>
             </div>
 
             <div className="flex justify-center">
