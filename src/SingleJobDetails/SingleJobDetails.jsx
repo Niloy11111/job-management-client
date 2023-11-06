@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-
+import { BiBeenHere, BiBriefcase, BiBriefcaseAlt2 } from "react-icons/bi";
 
 
 const SingleJobDetails = () => {
@@ -12,13 +12,18 @@ const SingleJobDetails = () => {
     return (
         <div className="pb-20">
             <h2 className="text-3xl font-serif font-bold">{jobTitle}</h2>
-            <p className="mt-2 mb-10 text-sm font-Inter font-medium">{jobCategory}</p>
+           <div className="flex gap-3 mt-2 mb-10">
+           <p className="flex items-center gap-2 bg-[#FFF] max-w-fit py-1 px-2 rounded text-sm font-Inter font-medium"> <BiBriefcase></BiBriefcase> {jobCategory}   </p>
+            <p className="flex items-center gap-2 bg-[#FFF] max-w-fit py-1 px-2 rounded text-sm font-Inter font-medium"> <BiBriefcaseAlt2></BiBriefcaseAlt2> Employee   </p>
 
+            <p className="flex items-center gap-2 bg-[#FDE3DF] text-[#D20000] max-w-fit py-1 px-2 rounded text-sm font-Inter font-medium"> <BiBeenHere></BiBeenHere> Actively Hiring </p>
+
+           </div>
             <div className="flex gap-10">
             <div className="flex justify-between shadow-md w-2/4 bg-[#FFF] border-t-8 rounded-t-lg border-[#1d2d5a] px-4 pt-12 pb-4 relative">
               <div className="">
               <p className="text-[#737478] text-sm font-sans font-medium">ABOUT US </p>
-                <p className="mt-3 text-base font-semibold font-serif">{about}</p>
+                <p className="mt-3 text-lg font-semibold font-inter">{about}</p>
                 <p className="mt-3 font-Inter font-semibold text-sm text-[#1d2d5a]">SALARY RANGE<span className="bg-blue-200 p-1 ml-2 rounded-lg text-blue-600">{salaryRange}</span> </p>
                 <p className="mt-3 font-Inter font-semibold text-sm text-[#1d2d5a]">NUMBER OF APPLICANTS <span className="border px-2 py-1 border-[#1d2d5a]">{applicants}</span> </p>
 

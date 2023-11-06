@@ -52,7 +52,7 @@ const JobByCategory = () => {
 
    
     return (
-        <div className="my-20">
+        <div className="my-36">
             <h2 className="text-3xl mb-6 font-bold text-center font-inter">Job By Category</h2>
 
             <Tabs className=''>

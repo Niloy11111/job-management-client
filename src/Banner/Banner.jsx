@@ -1,40 +1,46 @@
-
+import { BsSearch } from "react-icons/bs";
 
 
 const Banner = () => {
     return (
-        <div  className="-mx-12 lg:-mx-36 flex justify-center items-center h-[290px] lg:h-[84vh] " style={
-            {
-                backgroundImage : `URL("https://resources.biginterview.com/wp-content/uploads/2022/12/The-Top-50-Best-Job-Search-Sites-You-Need-to-Know-About.jpg")` ,
-                backgroundRepeat : 'no-repeat',
-                backgroundBlendMode : 'color',
-                backgroundSize : 'cover'
-            }
-        }>
-            
-            
+        <div className="-mx-12 lg:-mx-36  h-[290px] lg:h-[60vh] ">
 
-           <div>
-           <h2 className="text-center text-[#FFF] text-3xl lg:text-5xl font-Inter font-semibold">YOUR DREAM
-BUILD STARTS HERE   </h2>
-            <p className="text-center mt-4 lg:mt-6 font-inter text-[#FFF]">Where Automotive Perfection Meets Your Imagination, Drive Beyond Limits</p>
+            <div className="flex justify-between bg-[#aee2f7]">
 
-            <div>
-                
+                <div className="bg-[#aee2f7] w-4/6 ">
+                   <div className="flex justify-center items-center h-full">
+                   <div className="mb-24">
+                        <h2 className=" text-[#1d2d5a] text-3xl lg:text-6xl font-Inter font-bold">Find work <br />
+                            that's <span className="text-[#3e5aab] italic">worth it.</span>  </h2>
+                        <p className=" mt-4 lg:mt-6 font-inter text-[#494e5d]">Make a career match where the people, perks and values align with your needs.</p>
+
+                        
+                    <div className='mt-6 border-2 flex rounded-full py-1 lg:mt-10  bg-[#FFF]  w-[300px] md:w-[300px] lg:w-[470px] border-[#9adbf5]'>
+                        <button type="submit" className='bg-[#feea59] flex items-center justify-center w-[50px] h-[50px] rounded-full ml-2 text-lg font-semibold text-[#333F]'> <BsSearch></BsSearch></button>
+                        <input name='category' id='field-id' className='pl-4 outline-none ' type="text" placeholder='Search jobs or companies' />
+
+
+
+                    </div>
+
+                    </div>
+                   </div>
+
+                    <div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div className="">
+                    <img className="rounded-bl-[45%]" src="https://res.cloudinary.com/upwork-cloud-acquisition-prod/image/upload/f_auto,q_auto/brontes/for-enterprise/enterprise-2023.jpg"></img>
+                </div>
+
             </div>
 
-            
-            <div className='mt-6 rounded-full lg:mt-10 md:mx-auto flex justify-between bg-[#FFF] border w-[300px] md:w-[300px] lg:w-[470px] border-[#DEDEDE]'>
-            <input name='category' id='field-id' className='rounded-l-full pl-4 outline-none ' type="text" placeholder='Search here....' />
 
-            
-              <button type="submit" className='bg-[#FF444A] py-3 lg:py-4 px-8 rounded-r-full text-base font-semibold text-[#FFF]'>Search</button>
-          </div>
-
-
-           </div>
-
-           
         </div>
     );
 };

@@ -6,6 +6,7 @@ import HomePage from "../Pages/Home/HomePage";
 import Login from "../Pages/Login/Login";
 import AddAJob from "../AddAJob/AddAJob";
 import SingleJobDetails from "../SingleJobDetails/SingleJobDetails";
+import AllJobs from "../Pages/AllJobsPage/AllJobs";
 
 
 
@@ -33,6 +34,12 @@ export const router = createBrowserRouter([
                 loader : ({params}) => fetch(`http://localhost:5000/alljobs/${params.id} `),
                 element : <SingleJobDetails></SingleJobDetails>
             },
+            {
+                path : '/allJobs',
+                loader : () => fetch('http://localhost:5000/allJobs'),
+                element : <AllJobs></AllJobs>
+
+            }
         
 
         ]
