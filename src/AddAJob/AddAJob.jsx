@@ -24,10 +24,11 @@ const AddAJob = () => {
         const jobPostingDate = form.jobPostingDate.value ;
         const applicationDeadline = form.applicationDeadline.value ;
         const applicants = form.applicants.value ;
+        const email = user?.email ;
 
        
         const jobInfo = {
-            PictureURL, jobTitle, userName, jobCategory, salaryRange,description, jobPostingDate, applicationDeadline, applicants
+            PictureURL, jobTitle, userName, jobCategory, salaryRange,description, jobPostingDate, applicationDeadline, applicants, email
         }
         console.log(jobInfo)
 

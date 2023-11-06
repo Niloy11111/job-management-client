@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import AddAJob from "../AddAJob/AddAJob";
 import SingleJobDetails from "../SingleJobDetails/SingleJobDetails";
 import AllJobs from "../Pages/AllJobsPage/AllJobs";
+import MyJobs from "../Pages/MyJobsPage/MyJobs";
 
 
 
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
                 loader : () => fetch('http://localhost:5000/allJobs'),
                 element : <AllJobs></AllJobs>
 
+            },
+            {
+                path : '/myJobs',
+                element :<MyJobs></MyJobs>
             }
         
 

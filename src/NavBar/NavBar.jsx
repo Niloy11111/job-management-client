@@ -7,7 +7,7 @@ const NavBar = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
-    console.log(user?.photoURL)
+    console.log(user)
 
     const navlinksBeforeLogin = <>
         <li>
@@ -94,7 +94,7 @@ const NavBar = () => {
 
     </>
     return (
-        <div className="flex px-10 static -mx-12 lg:-mx-36 bg-[#9ADBF5] items-center flex-col lg:flex-row py-3 lg:py-5 justify-between  ">
+        <div className="flex px-10  -mx-12 lg:-mx-36 bg-[#9ADBF5] items-center flex-col lg:flex-row py-3 lg:py-5 justify-between  ">
 
             {/* <div className="flex items-center">
                <h2 className="text-3xl font-bold font-serif"> Job Portal</h2>
