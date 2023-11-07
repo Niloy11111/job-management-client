@@ -50,6 +50,12 @@ const NavBar = () => {
         </li>
 
         <li>
+            <NavLink to="/blogs"  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+            }>BLOGS</NavLink>
+        </li>
+
+        <li>
             <NavLink to="/addAJob"  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
             }>ADD JOB</NavLink>
@@ -62,10 +68,12 @@ const NavBar = () => {
         </li>
 
         <li>
-            <NavLink to="/blogs"  className={({ isActive, isPending }) =>
+            <NavLink to="/appliedJobs"  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>BLOGS</NavLink>
+            }>APPLIED JOBS</NavLink>
         </li>
+
+       
 
         {/* <img className="w-[55px] rounded-full" src={user?.photoURL}></img> */}
 
@@ -94,7 +102,7 @@ const NavBar = () => {
 
     </>
     return (
-        <div className="flex px-10  -mx-12 lg:-mx-36 bg-[#9ADBF5] items-center flex-col lg:flex-row py-3 lg:py-5 justify-between  ">
+        <div className="flex px-10 -mx-12 lg:-mx-36 bg-[#9ADBF5] items-center flex-col lg:flex-row py-3 lg:py-4 justify-between  ">
 
             {/* <div className="flex items-center">
                <h2 className="text-3xl font-bold font-serif"> Job Portal</h2>

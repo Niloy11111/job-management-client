@@ -7,7 +7,7 @@ const SingleJob = ({job}) => {
     const {_id,  PictureURL, jobTitle, userName, jobCategory, salaryRange,description, jobPostingDate, applicationDeadline, applicants} = job ;
 
     return (
-        <div className="space-y-2  ease-in duration-300 p-4 transition  delay-100 bg-[#FFF] hover:-translate-y-1 hover:scale-110 hover:border-2 border-purple-300 rounded">
+        <div className="space-y-2  duration-150 p-4 transition-all bg-[#FFF] hover:border-2 border-purple-300 rounded">
 
             
             <h2 className="font-serif text-2xl font-normal"> {jobTitle}</h2>
