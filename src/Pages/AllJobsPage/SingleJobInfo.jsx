@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-const SingleJobInfo = ({ singlejobinfo }) => {
+const SingleJobInfo = ({ singlejobinfo  }) => {
 
     const {_id, PictureURL, jobTitle, userName, jobCategory, salaryRange, description, jobPostingDate, applicationDeadline, applicants, logo, about } = singlejobinfo;
     return (
