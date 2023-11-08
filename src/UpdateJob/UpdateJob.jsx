@@ -1,19 +1,22 @@
 import { useContext, useState } from "react";
-import DatePicker from "react-datepicker";
-
-import "react-datepicker/dist/react-datepicker.css";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import axios from "axios";
+
+import ReactDatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 
-const AddAJob = () => {
+
+const UpdateJob = () => {
 
     const {user} = useContext(AuthContext) ;
 
     const [startDate, setStartDate] = useState(new Date());
 
+    const jobs = useLoaderData();
 
-    const handleAddJob = e => {
+    const {_id, PictureURL, jobTitle, userName, jobCategory, salaryRange, description, jobPostingDate, applicationDeadline, applicants, logo, about } = jobs;
+
+    const handleUpdateJob = e => {
         e.preventDefault() ;
         const form = e.target ;
         const PictureURL = form.PictureURL.value ;
@@ -33,39 +36,47 @@ const AddAJob = () => {
         }
         console.log(jobInfo)
 
-        axios.post('http://localhost:5000/addJob', jobInfo)
-        .then(data => {
-          Swal.fire({
-            title: 'Success!',
-            text: 'job Added Successfully',
-            icon: 'success',
-            confirmButtonText: 'Cool'
-        })
-          console.log(data.data)
+
+        fetch(`http://localhost:5000/allJobs/${_id}`, {
+            method : 'PUT',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(jobInfo)
         })
 
-      
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if (data.modifiedCount > 0) {
+                 Swal.fire({
+                    title: 'Success!',
+                    text: 'job Updated Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            }
+        })
+
         
     }
-
     return (
-
         <div className="mb-20">
 
-            <h2 className="text-4xl font-serif font-medium text-center my-7 ">Let's Add a Job</h2>
-            <form className="" onSubmit={handleAddJob}>
+            <h2 className="text-4xl font-serif font-medium text-center my-7  ">Let's Update a Job</h2>
+            <form className="" onSubmit={handleUpdateJob}>
 
                 <div className="lg:w-2/4 mx-auto">
                  
                     
               <label htmlFor="">
                 <h4 className="mb-2 text-lg  font-bold">Job Banner</h4>
-              <input className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-6" type="text" placeholder="Picture URL" src="" name="PictureURL" alt="" />
+              <input className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-6" type="text" defaultValue={PictureURL} placeholder="Picture URL" src="" name="PictureURL" alt="" />
               </label>
 
                 <label htmlFor="">
                 <h4 className="mb-2 text-lg  font-bold">Job Title</h4>
-                <input className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-4" type="text" placeholder="Job Title" name="jobTitle" id="" />
+                <input className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-4" type="text" placeholder="Job Title" defaultValue={jobTitle} name="jobTitle" id="" />
                 </label>
 
                <label htmlFor="">
@@ -90,23 +101,23 @@ const AddAJob = () => {
               
              <label htmlFor="">
              <h4 className="mb-2 text-lg  font-bold">Salary Range</h4>
-             <input className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-4" type="text" placeholder="Salary Range" name="salaryRange" id="" />
+             <input className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-4" type="text" defaultValue={salaryRange} placeholder="Salary Range" name="salaryRange" id="" />
              </label>
 
                <label htmlFor="">
                <h4 className="mb-2 text-lg  font-bold">Job Description</h4>
                  {/* <input className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-4" type="text" placeholder="Job Description" name="description" id="" /> */}
-                 <textarea className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-4" type="text" placeholder="Job Description" name="description" id=""cols="50" rows="5"></textarea>
+                 <textarea className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-4" type="text" placeholder="Job Description"  defaultValue={description} name="description" id=""cols="50" rows="5"></textarea>
                </label>
 
                <label htmlFor="">
                <h4 className="mb-2 text-lg  font-bold">Job Posting Date</h4>
-               <input type="date" className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-6" name="jobPostingDate" id="birthday" />
+               <input type="date" className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-6" defaultValue={jobPostingDate} name="jobPostingDate" id="birthday" />
                </label>
                
                <label htmlFor="">
                <h4 className="mb-2 text-lg  font-bold">Application DeadLine</h4>
-               <DatePicker className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-[380px] block border pb-3 mb-6" name="applicationDeadline"  selected={startDate} onChange={(date) => setStartDate(date)} />
+               <ReactDatePicker className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-[380px] block border pb-3 mb-6" name="applicationDeadline"  selected={startDate} onChange={(date) => setStartDate(date)} />
                </label>
             
                <label htmlFor="">
@@ -114,7 +125,7 @@ const AddAJob = () => {
                <input type="text" defaultValue={0} className=" pl-5 bg-[#FFF]  rounded py-3 outline-none w-full block border pb-3 mb-6" placeholder="Applicants Number"  name="applicants"  />
                </label>
 
-                <button className="w-full bg-[#009EE2] py-3 rounded text-[#FFF] text-base font-inter font-medium"> Add This Job </button>
+                <button className="w-full bg-[#009EE2] py-3 rounded text-[#FFF] text-base font-inter font-medium"> Update This Job </button>
               
                 </div>
             </form>
@@ -122,4 +133,4 @@ const AddAJob = () => {
     );
 };
 
-export default AddAJob;
+export default UpdateJob;

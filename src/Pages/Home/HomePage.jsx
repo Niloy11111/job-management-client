@@ -1,4 +1,5 @@
 import Banner from "../../Banner/Banner";
+
 import JobByCategory from "../../JobByCategory/JobByCategory";
 
 
@@ -7,6 +8,7 @@ const HomePage = () => {
         <div>
             <Banner></Banner>
             <JobByCategory></JobByCategory>
+         
         </div>
     );
 };

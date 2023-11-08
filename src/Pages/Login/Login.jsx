@@ -4,11 +4,13 @@ import { FcGoogle } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const { signInUser , createUser, googleSignIn, handleUpdateProfile} = useContext(AuthContext) ;
 
+  const navigate = useNavigate() ;
 
 //   console.log(user)
   const [toogle, setToogle] = useState(true)
@@ -39,6 +41,7 @@ const Login = () => {
         .then(res => { 
           console.log(res.user)
           new Swal("Thank you!", "You have successfully completed your registration!", "success") 
+          navigate('/') ;
           handleUpdateProfile(name, photo)
           .then(() => {
             console.log('user created')
@@ -61,6 +64,7 @@ const Login = () => {
 
     signInUser(email, password)
        .then(res => {
+        navigate('/') ;
         console.log(res.user)
 
        })
@@ -72,6 +76,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
     .then(res => { 
+      navigate('/') ;
       console.log(res.user)
       new Swal("Login Successful!", "Welcome back!", "success")
     })

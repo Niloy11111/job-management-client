@@ -108,7 +108,7 @@ const NavBar = () => {
                <h2 className="text-3xl font-bold font-serif"> Job Portal</h2>
             </div> */}
 
-            <div className="navbar-start">
+            <div className="navbar-start flex items-center">
                 <div className="dropdown ">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -123,7 +123,19 @@ const NavBar = () => {
 
                     </ul>
                 </div>
-                <a className=" text-xl">daisyUI</a>
+              <div className="logo flex gap-1 items-center">
+                <div className="flex">
+                <div className="w-[25px] rounded-tr-full  h-[35px] bg-[#FFF]"></div>
+                <div className="w-[25px] rounded-tl-full  h-[35px] bg-[#1d2d5a]"></div>
+                </div>
+
+
+         <div className=" text-[27px] flex flex-col text-[#1d2d5a] font-bold font-serif">the 
+         <span className="-mt-6">muse</span>
+         </div>
+               
+                </div>
+
             </div>
 
             <div className="flex justify-center">

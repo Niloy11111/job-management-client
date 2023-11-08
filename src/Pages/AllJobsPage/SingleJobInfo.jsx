@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const SingleJobInfo = ({ singlejobinfo }) => {
 
-    const { PictureURL, jobTitle, userName, jobCategory, salaryRange, description, jobPostingDate, applicationDeadline, applicants, logo, about } = singlejobinfo;
+    const {_id, PictureURL, jobTitle, userName, jobCategory, salaryRange, description, jobPostingDate, applicationDeadline, applicants, logo, about } = singlejobinfo;
     return (
         <div>
             <div className="bg-[#FFF] flex items-center justify-between pb-3 border-b pr-4 hover:bg-[#ebf8fd] border-[#9adbf5] rounded">
@@ -22,7 +23,7 @@ const SingleJobInfo = ({ singlejobinfo }) => {
                 <div>
                     <p>{applicationDeadline}</p>
                     <p>{salaryRange}</p>
-                    <button className="border border-[#1d2d5a] text-[#1d2d5a] text-sm hover:text-[#FFF] px-10 py-3 font-inter font-normal rounded hover:bg-[#1d2d5a]">VIEW JOB</button>
+                  <Link to={`details/${_id}`}>  <button className="border border-[#1d2d5a] text-[#1d2d5a] text-sm hover:text-[#FFF] px-10 py-3 font-inter font-normal rounded hover:bg-[#1d2d5a]">VIEW JOB</button></Link>
                 </div>
 
 

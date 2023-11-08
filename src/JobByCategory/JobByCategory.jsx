@@ -5,7 +5,8 @@ import OnSiteJob from "../OnSiteJob/OnSiteJob";
 import RemoteJobs from "../RemoteJobs/RemoteJobs";
 import HybridJob from "../HybridJob/HybridJob";
 import PartTimeJobs from "../PartTimeJobs/PartTimeJobs";
-
+import 'react-tabs/style/react-tabs.css';
+import '../TabCss/Tab.css'
 
 const JobByCategory = () => {
 
@@ -50,21 +51,27 @@ const JobByCategory = () => {
       .then(data => setPartTimeJobs(data))
     }, [])
 
+    const [activeTab, setActiveTab] = useState(0);
    
     return (
-        <div className="my-36">
+        <div className="my-20">
             <h2 className="text-3xl mb-6 font-bold text-center font-inter">Job By Category</h2>
 
-            <Tabs className=''>
-    <TabList className="flex gap-6 justify-center">
-      <Tab className="bg-green-300 cursor-pointer px-6 py-2 rounded">All Jobs</Tab>
+            <Tabs  className=''>
+    <TabList className="flex  gap-6 justify-center">
+      <Tab  className={`cursor-pointer px-6 py-2 rounded ${activeTab === 0 ? 'active' : ''}`}
+          onClick={() => setActiveTab(0)}>All Jobs</Tab>
 
-      <Tab className='bg-red-100 cursor-pointer px-6 py-2 rounded'>On Site Job</Tab>
+      <Tab  className={`cursor-pointer px-6 py-2 rounded ${activeTab === 1 ? 'active' : ''}`}
+          onClick={() => setActiveTab(1)}>On Site Job</Tab>
 
-      <Tab className='bg-blue-400 cursor-pointer px-6 py-2 rounded'>Remote Job
+      <Tab   className={`cursor-pointer px-6 py-2 rounded ${activeTab === 2 ? 'active' : ''}`}
+          onClick={() => setActiveTab(2)}>Remote Job
 </Tab>
-      <Tab className='bg-purple-400 cursor-pointer px-6 py-2 rounded'>Hybrid</Tab>
-      <Tab className='bg-sky-300 cursor-pointer px-6 py-2 rounded'>Part Time</Tab>
+      <Tab className={`cursor-pointer px-6 py-2 rounded ${activeTab === 3 ? 'active' : ''}`}
+          onClick={() => setActiveTab(3)}>Hybrid</Tab>
+      <Tab  className={`cursor-pointer px-6 py-2 rounded ${activeTab === 4 ? 'active' : ''}`}
+          onClick={() => setActiveTab(4)}>Part Time</Tab>
 
 
     </TabList>

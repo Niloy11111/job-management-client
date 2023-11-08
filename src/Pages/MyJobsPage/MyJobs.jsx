@@ -19,12 +19,14 @@ const MyJobs = () => {
     
     return (
         <div>
-            <h2 className="text-2xl text-center"> You have created {myJobs.length} jobs </h2>
+            <h2 className="text-4xl my-12 font-medium font-serif text-center"> You have Posted {myJobs.length} jobs </h2>
 
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-6 mb-20">
                 {
                     myJobs.map(myjob => <MySingleJob
                     key={myjob._id}
+                    setMyJobs={setMyJobs}
+                    myJobs={myJobs}
                     myjob={myjob}
                     ></MySingleJob> )
                 }
