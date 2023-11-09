@@ -5,7 +5,8 @@ const ErrorPage = () => {
     return (
         <div className='flex justify-center items-center h-[100vh]'>
            <div>
-           <h1 className='text-[#FF444A] text-4xl font-bold mb-8'>404 - Not Found!</h1>
+            <img src='https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg?size=626&ext=jpg&ga=GA1.1.1973595152.1687198433&semt=ais'></img>
+           <h1 className='text-[#FF444A] text-4xl font-bold mb-8 text-center'>404 - Not Found!</h1>
             <NavLink to="/">
                 
               <div className='flex justify-center'>
