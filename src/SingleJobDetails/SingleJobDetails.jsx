@@ -12,12 +12,23 @@ const SingleJobDetails = () => {
 
     const singleJobDetails = useLoaderData() ;
 
-    const {_id, PictureURL, jobTitle, userName, jobCategory, salaryRange,description, jobPostingDate, applicationDeadline, applicants, logo, about } = singleJobDetails ;
+    const {_id, email,  PictureURL, jobTitle, userName, jobCategory, salaryRange,description, jobPostingDate, applicationDeadline, applicants, logo, about } = singleJobDetails ;
 
-    
+    const creatorEmail = email ;
+
+    console.log(creatorEmail)
+
+    // if(creatorEmail === user?.email){
+    //   toast.error('sorry')
+    // }
 
     const hanldeApplyJob = (e) => {
         e.preventDefault() ;
+if(creatorEmail === user?.email){
+      toast.error('Sorry you cannot apply on your own created job')
+    }
+      
+       else{
         const form = e.target ;
         const userName = form.userName.value ;
         const email = form.email.value ;
@@ -35,6 +46,7 @@ const SingleJobDetails = () => {
          
           console.log(data.data)
         })
+       }
         
     }
 

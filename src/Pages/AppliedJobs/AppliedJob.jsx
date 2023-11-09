@@ -14,7 +14,7 @@ const AppliedJob = () => {
 
     const urlCategory = `http://localhost:5000/appliedJobs?email=${user?.email}&jobCategory=${category}`;
 
-    const url = 'http://localhost:5000/allAppliedJobs' ;
+    const url = `http://localhost:5000/appliedJobsEmail?email=${user?.email}` ;
 
     useEffect(() => {
         if (category) {
