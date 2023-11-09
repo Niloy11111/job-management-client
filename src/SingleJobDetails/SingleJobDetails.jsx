@@ -54,7 +54,7 @@ if(creatorEmail === user?.email){
    
     return (
 
-        <div className="pb-20">
+        <div className="pb-20 mt-20">
             <h2 className="text-3xl font-serif font-bold">{jobTitle}</h2>
            <div className="flex gap-3 mt-2 mb-10">
            <p className="flex items-center gap-2 bg-[#FFF] max-w-fit py-1 px-2 rounded text-sm font-Inter font-medium"> <BiBriefcase></BiBriefcase> {jobCategory}   </p>
