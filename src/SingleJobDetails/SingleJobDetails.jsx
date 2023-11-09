@@ -5,6 +5,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 
 import toast from 'react-hot-toast';
+import { Helmet } from "react-helmet";
 
 const SingleJobDetails = () => {
 
@@ -40,7 +41,7 @@ if(creatorEmail === user?.email){
         }
         console.log(appliedJobInfo)
 
-        axios.post('http://localhost:5000/appliedJob', appliedJobInfo)
+        axios.post('https://job-management-server-eight.vercel.app/appliedJob', appliedJobInfo)
         .then(data => {
           toast.success("WoW you have applied on this job successfully !");
          
@@ -55,6 +56,9 @@ if(creatorEmail === user?.email){
     return (
 
         <div className="pb-20 mt-20">
+          <Helmet>
+        <title>Job Details - The Muse </title>
+      </Helmet>
             <h2 className="text-3xl font-serif font-bold">{jobTitle}</h2>
            <div className="flex gap-3 mt-2 mb-10">
            <p className="flex items-center gap-2 bg-[#FFF] max-w-fit py-1 px-2 rounded text-sm font-Inter font-medium"> <BiBriefcase></BiBriefcase> {jobCategory}   </p>

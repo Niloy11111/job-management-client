@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddAJob = () => {
 
@@ -33,7 +34,7 @@ const AddAJob = () => {
         }
         console.log(jobInfo)
 
-        axios.post('http://localhost:5000/addJob', jobInfo)
+        axios.post('https://job-management-server-eight.vercel.app/addJob', jobInfo)
         .then(data => {
           Swal.fire({
             title: 'Success!',
@@ -51,6 +52,9 @@ const AddAJob = () => {
     return (
 
         <div className="mb-20">
+          <Helmet>
+        <title>Add Job  - The Muse </title>
+      </Helmet>
 
             <h2 className="text-4xl font-serif font-medium text-center my-7 ">Let's Add a Job</h2>
             <form className="" onSubmit={handleAddJob}>

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import axios from "axios";
 import SingleAppliedJob from "./SingleAppliedJob";
+import { Helmet } from "react-helmet";
 
 
 const AppliedJob = () => {
@@ -12,24 +12,34 @@ const AppliedJob = () => {
     const { user } = useContext(AuthContext);
     const [appliedJobs, setAppliedJobs] = useState([]);
 
-    const urlCategory = `http://localhost:5000/appliedJobs?email=${user?.email}&jobCategory=${category}`;
+    // console.log(appliedJobs)
 
-    const url = `http://localhost:5000/appliedJobsEmail?email=${user?.email}` ;
+    const urlCategory = `https://job-management-server-eight.vercel.app/appliedJobs?email=${user?.email}&jobCategory=${category}`;
+
+    const url = `https://job-management-server-eight.vercel.app/appliedJobsEmail?email=${user?.email}` ;
 
     useEffect(() => {
         if (category) {
-            axios.get(urlCategory).then((res) => {
-                setAppliedJobs(res.data);
-            });
+            fetch(urlCategory)
+            .then(res => res.json())
+            .then( data => {
+                setAppliedJobs(data)
+            })
         }
         else(
-            axios.get(url)
-            .then(res => setAppliedJobs(res.data))
+            fetch(url)
+            .then(res => res.json())
+            .then( data => {
+                setAppliedJobs(data)
+            })
         )
     }, [category, urlCategory]);
 
     return (
         <div className="mb-24">
+            <Helmet>
+        <title>Applied Job - The Muse </title>
+      </Helmet>
             <div className="my-10 text-center">
                 <form action="">
                     <select

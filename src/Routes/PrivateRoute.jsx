@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Navigate } from "react-router-dom";
 
-import toast from 'react-hot-toast';
 
 
 
@@ -18,8 +17,7 @@ const PrivateRoute = ({children}) => {
     }
 
     else{
-        
-        toast.error('Please Register First!')
+    
       
         return <Navigate to="/login"></Navigate>
     }

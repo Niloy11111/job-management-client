@@ -3,15 +3,16 @@ import SingleJobInfo from "./SingleJobInfo";
 import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 const AllJobs = () => {
     const [allJobs, setAllJobs] = useState() ;
     const [inputValue, setInputValue] = useState('');
 
-    const titleUrl = `http://localhost:5000/titleBaseJob?jobTitle=${inputValue}`
+    const titleUrl = `https://job-management-server-eight.vercel.app/titleBaseJob?jobTitle=${inputValue}`
 
-    const url = 'http://localhost:5000/allJobs'
+    const url = 'https://job-management-server-eight.vercel.app/allJobs'
 
     useEffect( () => {
         if(inputValue ){
@@ -42,6 +43,9 @@ const AllJobs = () => {
 
     return (
         <div className="pb-20">
+            <Helmet>
+        <title>All Jobs - The Muse </title>
+      </Helmet>
 
             <h2 className="text-center my-10 text-4xl font-medium font-serif">Explore Your Dream Job</h2>
 

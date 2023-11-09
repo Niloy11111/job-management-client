@@ -21,7 +21,7 @@ const SingleJobInfo = ({ singlejobinfo  }) => {
                 </div>
 
                 <div>
-                    <p>{applicationDeadline}</p>
+                    <p>Deadline {applicationDeadline}</p>
                     <p>{salaryRange}</p>
                   <Link to={`details/${_id}`}>  <button className="border border-[#1d2d5a] text-[#1d2d5a] text-sm hover:text-[#FFF] px-10 py-3 font-inter font-normal rounded hover:bg-[#1d2d5a]">VIEW JOB</button></Link>
                 </div>

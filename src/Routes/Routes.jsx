@@ -41,17 +41,17 @@ export const router = createBrowserRouter([
             },
             {
                 path : '/details/:id',
-                loader : ({params}) => fetch(`http://localhost:5000/alljobs/${params.id} `),
+                loader : ({params}) => fetch(`https://job-management-server-eight.vercel.app/alljobs/${params.id} `),
                 element : <PrivateRoute><SingleJobDetails></SingleJobDetails></PrivateRoute>
             },
             {
                 path : 'allJobs/details/:id',
-                loader : ({params}) => fetch(`http://localhost:5000/alljobs/${params.id} `),
+                loader : ({params}) => fetch(`https://job-management-server-eight.vercel.app/alljobs/${params.id} `),
                 element :<PrivateRoute> <SingleJobDetails></SingleJobDetails></PrivateRoute>
             },
             {
                 path : '/allJobs',
-                loader : () => fetch('http://localhost:5000/allJobs'),
+                loader : () => fetch('https://job-management-server-eight.vercel.app/allJobs'),
                 element : <AllJobs></AllJobs>
 
             },
@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
             {
                 path: 'myJobs/updateJobs/:id',
                 element: <PrivateRoute><UpdateJob></UpdateJob></PrivateRoute> ,
-                loader: ({ params }) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://job-management-server-eight.vercel.app/allJobs/${params.id}`)
               },
         
 

@@ -13,7 +13,7 @@ const JobByCategory = () => {
     const [allJobs , setAllJobs] = useState([]) ;
 
     useEffect( () => {
-      fetch('http://localhost:5000/allJobs') 
+      fetch('https://job-management-server-eight.vercel.app/allJobs') 
       .then(res => res.json())
       .then(data => setAllJobs(data))
     }, [])
@@ -21,7 +21,7 @@ const JobByCategory = () => {
     const [onSiteJobs , setOnSiteJobs] = useState([]) ;
 
     useEffect( () => {
-      fetch('http://localhost:5000/jobs/OnSite') 
+      fetch('https://job-management-server-eight.vercel.app/jobs/OnSite') 
       .then(res => res.json())
       .then(data => setOnSiteJobs(data))
     }, [])
@@ -30,7 +30,7 @@ const JobByCategory = () => {
     const [remoteJobs , setRemoteJobs] = useState([]) ;
 
     useEffect( () => {
-      fetch('http://localhost:5000/jobs/Remote') 
+      fetch('https://job-management-server-eight.vercel.app/jobs/Remote') 
       .then(res => res.json())
       .then(data => setRemoteJobs(data))
     }, [])
@@ -38,7 +38,7 @@ const JobByCategory = () => {
     const [hybridJobs , setHybridJobs] = useState([]) ;
 
     useEffect( () => {
-      fetch('http://localhost:5000/jobs/Hybrid') 
+      fetch('https://job-management-server-eight.vercel.app/jobs/Hybrid') 
       .then(res => res.json())
       .then(data => setHybridJobs(data))
     }, [])
@@ -46,7 +46,7 @@ const JobByCategory = () => {
     const [partTimeJobs , setPartTimeJobs] = useState([]) ;
 
     useEffect( () => {
-      fetch('http://localhost:5000/jobs/Part-Time') 
+      fetch('https://job-management-server-eight.vercel.app/jobs/Part-Time') 
       .then(res => res.json())
       .then(data => setPartTimeJobs(data))
     }, [])
