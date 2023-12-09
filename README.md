@@ -36,7 +36,6 @@
 
 ### Feature - 8
 ## Create jwt token when a user logged in
-<br>
 
 ### For Security purpose we have created a system for jwt token to protect our users and admins protected information . 
 
