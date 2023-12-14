@@ -3,11 +3,28 @@ import {  RiDeleteBin6Line } from "react-icons/ri";
 import {  MdOutlineTipsAndUpdates } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import SingleResume from "./SingleResume";
 
 
 const MySingleJob = ({myjob, myJobs, setMyJobs}) => {
 
     const {_id, PictureURL, jobTitle, userName, jobCategory, salaryRange,description, jobPostingDate, applicationDeadline, applicants, logo, about} = myjob ;
+
+    const [resume , setResume] = useState([]) ; 
+
+    const url = `https://job-management-server-eight.vercel.app/myEmployees?jobTitle=${jobTitle}` ;
+
+    useEffect( () => {
+       fetch(url) 
+       .then(res => res.json()) 
+       .then(data => setResume(data))
+    }, [])
+
+    console.log('resume', resume)
+
+    console.log(jobTitle)
+    
 
 
     const handleDeleteProduct = _id => {
@@ -47,7 +64,8 @@ const MySingleJob = ({myjob, myJobs, setMyJobs}) => {
     }
 
     return (
-        <div className="bg-[#FFF] hover:border-2 border-[#9adbf5] hover:shadow-xl p-6 rounded-lg  transition-all duration-150 cursor-pointer ">
+      <div>
+          <div className="bg-[#FFF] hover:border-2 border-[#9adbf5] hover:shadow-xl p-6 rounded-lg  transition-all duration-150 cursor-pointer ">
            
            <div className="flex gap-1  items-center">
             <img className="w-[80px]" src={logo}></img>
@@ -73,9 +91,24 @@ const MySingleJob = ({myjob, myJobs, setMyJobs}) => {
            <button onClick={() => handleDeleteProduct(_id)} className="flex-1 flex items-center justify-center py-2 border-2 gap-3 border-[#D9DBE9] hover:bg-[#D9DBE9] text-[#6E46AE] rounded font-semibold text-sm"><RiDeleteBin6Line></RiDeleteBin6Line> DELETE</button>
            </div>
 
+           <h2 className="my-4 font-Inter font-semibold">{resume.length} Resume For {jobTitle}</h2>
 
-
+<div>
+    {
+        resume.map(item => <SingleResume
+        item={item}
+        key={item._id}
+        ></SingleResume>)
+    }
+</div>
         </div>
+
+       
+        
+
+
+
+      </div>
     );
 };
 

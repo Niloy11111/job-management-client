@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { BiBeenHere, BiBriefcase, BiBriefcaseAlt2 } from "react-icons/bi";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 
@@ -17,17 +17,29 @@ const SingleJobDetails = () => {
 
     const creatorEmail = email ;
 
-    console.log(creatorEmail)
+    const [resume , setResume] = useState([]) ;
+  
 
-    // if(creatorEmail === user?.email){
-    //   toast.error('sorry')
-    // }
+    const url = `https://job-management-server-eight.vercel.app/myEmployees?jobTitle=${jobTitle}` ;
 
+    useEffect( () => {
+       fetch(url) 
+       .then(res => res.json()) 
+       .then(data => setResume(data))
+    }, [])
+
+    const isApplicant = resume.some((applicant) => applicant?.email === user?.email);
+
+    
     const hanldeApplyJob = (e) => {
         e.preventDefault() ;
 if(creatorEmail === user?.email){
       toast.error('Sorry you cannot apply on your own created job')
     }
+    else if (isApplicant) {
+      toast.error("Sorry! You already applied for this job");
+    }
+   
       
        else{
         const form = e.target ;
@@ -117,7 +129,7 @@ if(creatorEmail === user?.email){
             </div>
 
             <p className="text-lg w-2/4 font-serif mt-10"> {description}</p>
-            <button className="transition duration-700 ease-in">Button C</button>
+          
             
         </div>
     );

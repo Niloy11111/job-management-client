@@ -12,44 +12,20 @@ const JobByCategory = () => {
 
     const [allJobs , setAllJobs] = useState([]) ;
 
+    console.log('all jobs', allJobs)
+
     useEffect( () => {
       fetch('https://job-management-server-eight.vercel.app/allJobs') 
       .then(res => res.json())
       .then(data => setAllJobs(data))
     }, [])
 
-    const [onSiteJobs , setOnSiteJobs] = useState([]) ;
+    const onSiteJobs = allJobs.filter(item => item.jobCategory === 'On Site') ;
+    const remoteJobs = allJobs.filter(item => item.jobCategory === 'Remote') ;
+    const partTimeJobs = allJobs.filter(item => item.jobCategory === 'Part-Time') ;
+    const hybridJobs = allJobs.filter(item => item.jobCategory === 'Hybrid') ;
 
-    useEffect( () => {
-      fetch('https://job-management-server-eight.vercel.app/jobs/OnSite') 
-      .then(res => res.json())
-      .then(data => setOnSiteJobs(data))
-    }, [])
-
-
-    const [remoteJobs , setRemoteJobs] = useState([]) ;
-
-    useEffect( () => {
-      fetch('https://job-management-server-eight.vercel.app/jobs/Remote') 
-      .then(res => res.json())
-      .then(data => setRemoteJobs(data))
-    }, [])
-
-    const [hybridJobs , setHybridJobs] = useState([]) ;
-
-    useEffect( () => {
-      fetch('https://job-management-server-eight.vercel.app/jobs/Hybrid') 
-      .then(res => res.json())
-      .then(data => setHybridJobs(data))
-    }, [])
-
-    const [partTimeJobs , setPartTimeJobs] = useState([]) ;
-
-    useEffect( () => {
-      fetch('https://job-management-server-eight.vercel.app/jobs/Part-Time') 
-      .then(res => res.json())
-      .then(data => setPartTimeJobs(data))
-    }, [])
+   
 
     const [activeTab, setActiveTab] = useState(0);
    

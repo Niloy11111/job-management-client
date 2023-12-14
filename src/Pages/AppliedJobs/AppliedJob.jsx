@@ -3,66 +3,77 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import SingleAppliedJob from "./SingleAppliedJob";
 import { Helmet } from "react-helmet";
 
+import Select from 'react-select';
+
 
 const AppliedJob = () => {
-    const categories = ['Remote', 'On Site', 'Hybrid', 'Part-Time'];
-
-    const [category, setCategory] = useState('');
+   
 
     const { user } = useContext(AuthContext);
     const [appliedJobs, setAppliedJobs] = useState([]);
 
-    // console.log(appliedJobs)
+    const [selectedOption, setSelectedOption] = useState('Dinner');
+    const categoryValue = selectedOption.value ;
 
-    const urlCategory = `https://job-management-server-eight.vercel.app/appliedJobs?email=${user?.email}&jobCategory=${category}`;
+    const options = [
+      
+        { value: 'Remote', label: 'Remote' },
+        { value: 'On Site', label: 'On Site' },
+        { value: 'Part-Time', label: 'Part-Time' },
+        { value: 'Hybrid', label: 'Hybrid' },
+      ];
+   
+
+      const filteredJobs = appliedJobs.filter(item => item.jobCategory === selectedOption.value)
 
     const url = `https://job-management-server-eight.vercel.app/appliedJobsEmail?email=${user?.email}` ;
 
     useEffect(() => {
-        if (category) {
-            fetch(urlCategory)
-            .then(res => res.json())
-            .then( data => {
-                setAppliedJobs(data)
-            })
-        }
-        else(
+      
             fetch(url)
             .then(res => res.json())
             .then( data => {
                 setAppliedJobs(data)
             })
-        )
-    }, [category, urlCategory]);
+     
+    }, [url]);
 
     return (
         <div className="mb-24">
             <Helmet>
         <title>Applied Job - The Muse </title>
       </Helmet>
-            <div className="my-10 text-center">
+            <div className="my-10 text-center w-1/3 ">
                 <form action="">
-                    <select
-                        onChange={(e) => setCategory(e.target.value)}
-                        className="w-1/3 outline-none rounded py-3"
-                        name=""
-                        id=""
-                    >
-                        <option value="">All</option>
-                        {categories.map((item) => (
-                            <option value={item} key={item}>
-                                {item}
-                            </option>
-                        ))}
-                    </select>
+                <Select className='w-full rounded-lg p-2 '
+        defaultValue={selectedOption}
+        onChange={setSelectedOption}
+        options={options}
+      />
+                   
                 </form>
             </div>
 
+            {
+            categoryValue ?
             <div className="grid grid-cols-3 gap-6">
-                {appliedJobs.map((appliedjob) => (
-                    <SingleAppliedJob key={appliedjob._id} appliedjob={appliedjob}></SingleAppliedJob>
-                ))}
-            </div>
+            {
+                filteredJobs.map(item => <SingleAppliedJob
+                key={item._id}
+                item={item}
+                ></SingleAppliedJob> )
+            }
+           </div>
+            : <div className="grid grid-cols-3 gap-6">
+            {
+                appliedJobs.map(item => <SingleAppliedJob
+                key={item._id}
+                item={item}
+                ></SingleAppliedJob> )
+            }
+           </div> 
+           
+          }
         </div>
     );
 };

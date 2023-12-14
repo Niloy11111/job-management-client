@@ -39,6 +39,23 @@
 
 ### For Security purpose we have created a system for jwt token to protect our users and admins protected information . 
 
+#### HERE IS MY UNIQUE FEATURES ~
+
+### Unique Feature - 1
+##  Filter By JobCategory 
+
+### In the appliedJob route i have implemented a select option to filter job by category and i use react select package for this feature . 
+
+### Unique Feature - 2
+##  Resume For Job Creator 
+
+### In myJobs route where a user see which jobs he/she created i add extra a few thing one is resume download option from direct mongoDB(got the resume from when user submit application) and i also function for not  to apply more than one time in a job post . 
+
+## Project Selling Line ~
+
+### TheMuse : Your all-in-one destination for seamless job exploration and hiring. Full-stack website offering easy access to diverse opportunities with a user-friendly design. Simplify your job journey on TheMuse .
+
+
 
 
  

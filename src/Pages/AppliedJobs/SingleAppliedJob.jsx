@@ -2,8 +2,8 @@ import { CgMail } from "react-icons/cg";
 import { FcBusinessman } from "react-icons/fc";
 import { RxResume } from "react-icons/rx";
 
-const SingleAppliedJob = ({appliedjob}) => {
-    const {userName, email, resume , photo, logo, jobTitle , jobCategory} = appliedjob ;
+const SingleAppliedJob = ({item}) => {
+    const {userName, email, resume , photo, logo, jobTitle , jobCategory} = item ;
     
 
     return (
