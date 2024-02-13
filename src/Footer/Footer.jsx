@@ -1,74 +1,88 @@
-import { FaFacebook,FaInstagramSquare,FaYoutube, FaLinkedin , FaTwitterSquare } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagramSquare,
+  FaLinkedin,
+  FaTwitterSquare,
+  FaYoutube,
+} from "react-icons/fa";
 
 const Footer = () => {
-    return (
-      <div className="-mx-36 h-[40vh] bg-[#1a2851] ">
-          <footer className=" footer p-10 text-base-content flex justify-center gap-20">
-          
+  return (
+    <div className="flex my-20 justify-around text-[#000000] font-Inter">
+      <div>
+        <div className="flex items-center gap-2 mb-10">
+          <img
+            className="w-[50px] lg:w-[50px]"
+            src="https://i.ibb.co/cwFBJD2/Untitled-design.png"
+          ></img>
+          <h2 className="text-xl font-extrabold font-Inter"> LeapPro</h2>
+        </div>
 
-
-         
-               
-             
-  <nav>
-  <div className=" text-[36px] flex flex-col text-[#FFF] font-bold font-serif">the 
-         <span className="">muse</span>
-         </div>
-    <header className="footer-title">ABOUT THE MUSE</header> 
-    <a className="link link-hover">Branding</a> 
-    <a className="link link-hover">Design</a> 
-    <a className="link link-hover">Marketing</a> 
-    <a className="link link-hover">Advertisement</a>
-  </nav> 
-  <nav className="text-[#aee2f7]">
-    <header className="footer-title">ABOUT THE MUSE</header> 
-    <a className="link link-hover">About us</a> 
-    <a className="link link-hover">Careers</a> 
-    <a className="link link-hover">Contact Us</a> 
-    <a className="link link-hover">Privacy Policy</a>
-    <a className="link link-hover">Search Jobs</a>
-    <a className="link link-hover">Browse Companies</a>
-    <a className="link link-hover">Terms of Use</a>
-  </nav> 
-  <nav className="text-[#aee2f7]">
-    <header className="footer-title">POPULAR JOBS</header> 
-    <a className="link link-hover">New Your Jobs</a> 
-    <a className="link link-hover">San Francisco Jobs</a> 
-    <a className="link link-hover">Engineering Jobs</a>
-    <a className="link link-hover">Marketing Jobs</a>
-    <a className="link link-hover">Information Technology Jobs</a>
-    <a className="link link-hover">Salaries</a>
-  </nav> 
-  <nav className="text-[#aee2f7]">
-    <header className="footer-title">GET INVOLVED</header> 
-    <a className="link link-hover">For Employers</a> 
-    <a className="link link-hover">For Partners</a> 
-    <a className="link link-hover"> The Muse Book: The New Rules of Work</a> 
-    <a className="link link-hover">For Career Coaches</a>
-    <a className="link link-hover">Marketing Jobs</a>
-    <a className="link link-hover">Send Feedback About The Muse</a>
-    <a className="link link-hover">Tell A Friend</a>
-  </nav> 
-  <nav className="text-[#aee2f7]">
-   
-    <div >
-    <header className="footer-title">JOIN TEH CONVERSATION</header> 
-           <ul className="flex gap-8">
-           <a href="https:/facebook.com"> <FaFacebook className="text-3xl"></FaFacebook> </a> 
-            <a href="https:/instagram.com"> <FaInstagramSquare className="text-3xl"></FaInstagramSquare> </a> 
-            <a href="https:/twitter.com"> <FaTwitterSquare className="text-3xl"></FaTwitterSquare> </a>
-            <a href="https:/linkedin.com"> <FaLinkedin className="text-3xl"></FaLinkedin> </a>
-            <a href="https:/youtube.com"> <FaYoutube className="text-3xl"></FaYoutube>  </ a>
-           </ul>
-           </div>
-  </nav> 
-
-
-
- 
-</footer>
+        <h2 className="font-Inter font-bold mb-6 uppercase">Connect us on</h2>
+        <ul className="flex gap-8 text-[#E9155B]">
+          <a href="https:/facebook.com">
+            {" "}
+            <FaFacebook className="text-3xl"></FaFacebook>{" "}
+          </a>
+          <a href="https:/instagram.com">
+            {" "}
+            <FaInstagramSquare className="text-3xl"></FaInstagramSquare>{" "}
+          </a>
+          <a href="https:/twitter.com">
+            {" "}
+            <FaTwitterSquare className="text-3xl"></FaTwitterSquare>{" "}
+          </a>
+          <a href="https:/linkedin.com">
+            {" "}
+            <FaLinkedin className="text-3xl"></FaLinkedin>{" "}
+          </a>
+          <a href="https:/youtube.com">
+            {" "}
+            <FaYoutube className="text-3xl"></FaYoutube>{" "}
+          </a>
+        </ul>
       </div>
-    );
+
+      <div>
+        <h2 className="font-bold mb-3 uppercase">About LeepPro</h2>
+        <ul>
+          <li className="">About us</li>
+          <li className="">Careers</li>
+          <li className="">Contact Us</li>
+          <li className="">Privacy Policy</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 className="font-bold mb-3 uppercase">Popular Jobs</h2>
+        <ul>
+          <li className="">New Jobs</li>
+          <li className="">Planner Jobs</li>
+          <li className="">Engineering Jobs</li>
+          <li className="">Marketing Jobs</li>
+          <li className="">Researcher Jobs</li>
+          <li className="">Salaries</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 className="font-bold mb-3">GET INVOLVED</h2>
+        <div>
+          <input
+            className="outline-none py-2.5 pl-3 border-[#FF5CA4] w-full border rounded"
+            placeholder="Enter email adress"
+            type="email"
+            name=""
+            id=""
+          />
+
+          <button className=" hover:bg-[#FF5CA4] bg-[#E9155B] w-full py-2.5 transition-all text-white font-Inter duration-300  rounded mt-3">
+            SUBSCRIBE{" "}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Footer;

@@ -1,0 +1,19 @@
+.active {
+  color: #e9155b;
+  border: 1px solid #e9155b;
+  font-family: Inter;
+  font-weight: semibold;
+  background-color: #ffe3e8;
+}
+
+.inactive {
+  color: #000000;
+  font-family: Inter;
+  font-weight: semibold;
+  background-color: #ffe3e8;
+}
+.inactive:hover {
+  transition: all;
+  transition-duration: 0.5s;
+  color: #e9155b;
+}

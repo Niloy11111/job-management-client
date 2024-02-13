@@ -1,0 +1,16 @@
+/*popular job categories section css */
+.popularContainer:hover div {
+  background-color: white;
+}
+
+.popularContainer:hover {
+  color: white;
+}
+
+/* all jobs page css */
+/* search input placeholder css */
+
+.searchContainer input::placeholder {
+  color: white;
+  font-family: Inter;
+}

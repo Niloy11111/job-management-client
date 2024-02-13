@@ -1,24 +1,31 @@
 import { Helmet } from "react-helmet";
-import Banner from "../../Banner/Banner";
 
-import JobByCategory from "../../JobByCategory/JobByCategory";
-import LeverageTalent from "../../LeverageTalent/LeverageTalent";
-import WhatWeOffer from "../../WhatWeOffer/WhatWeOffer";
-
+import Banner from "./Banner/Banner";
+import Company from "./Company";
+import Connect from "./Connect";
+import JobByCategory from "./JobByCategory/JobByCategory";
+import LeverageTalent from "./LeverageTalent/LeverageTalent";
+import Usage from "./Usage";
 
 const HomePage = () => {
-    return (
-        <div>
-             <Helmet>
-        <title>Home Page - The Muse </title>
+  return (
+    <div className="">
+      <Helmet>
+        <title>Home Page -LeepPro </title>
       </Helmet>
-            <Banner></Banner>
-            
-            <WhatWeOffer></WhatWeOffer>
-            <JobByCategory></JobByCategory>
-            <LeverageTalent></LeverageTalent>
-        </div>
-    );
+      <Banner></Banner>
+
+      <Usage></Usage>
+
+      <Company></Company>
+
+      <LeverageTalent></LeverageTalent>
+
+      <Connect></Connect>
+
+      <JobByCategory></JobByCategory>
+    </div>
+  );
 };
 
 export default HomePage;

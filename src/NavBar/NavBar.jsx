@@ -1,170 +1,256 @@
 import { useContext } from "react";
+import { FaBars } from "react-icons/fa";
+import { HiOutlineLogout } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
-
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
 
-    const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
-    console.log(user)
+  const navlinksBeforeLogin = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "  text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4 "
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]   font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          HOME
+        </NavLink>
+      </li>
 
-    const navlinksBeforeLogin = <>
-        <li>
-            <NavLink to="/"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>HOME</NavLink>
-        </li>
+      <li>
+        <NavLink
+          to="/allJobs"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "  text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4 "
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]   font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          JOBS
+        </NavLink>
+      </li>
 
-        <li>
-            <NavLink to="/allJobs"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>JOBS</NavLink>
-        </li>
-
-        <li>
-            <NavLink to="/blogs"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>BLOGS</NavLink>
-        </li>
-
-        <li>
-            <NavLink to='/login'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>LOGIN</NavLink>
-        </li>
-
+      <li>
+        <NavLink
+          to="/blogs"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "  text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]   font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          BLOGS
+        </NavLink>
+      </li>
     </>
+  );
 
-    const navLinks = <>
-        <li className="">
-            <NavLink to="/"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>HOME</NavLink>
-        </li>
- 
-        <li className="">
-            <NavLink to="/allJobs" className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>JOBS</NavLink>
-        </li>
+  const navLinks = (
+    <>
+      <li className="">
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "   text-sm transition-all duration-200 text-[#E9155B]  font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4 "
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]   font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          HOME
+        </NavLink>
+      </li>
 
-        <li>
-            <NavLink to="/blogs"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>BLOGS</NavLink>
-        </li>
+      <li className="">
+        <NavLink
+          to="/allJobs"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "    text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]   font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          JOBS
+        </NavLink>
+      </li>
 
-        <li>
-            <NavLink to="/addAJob"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>ADD JOB</NavLink>
-        </li>
+      <li>
+        <NavLink
+          to="/blogs"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "    text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]   font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          BLOGS
+        </NavLink>
+      </li>
 
-        <li>
-            <NavLink to="/myJobs"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>MY JOBS</NavLink>
-        </li>
+      <li>
+        <NavLink
+          to="/addAJob"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "    text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]  font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          ADD JOB
+        </NavLink>
+      </li>
 
-        <li>
-            <NavLink to="/appliedJobs"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
-            }>APPLIED JOBS</NavLink>
-        </li>
+      <li>
+        <NavLink
+          to="/myJobs"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "    text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]  font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          MY JOBS
+        </NavLink>
+      </li>
 
-       
+      <li>
+        <NavLink
+          to="/appliedJobs"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "    text-sm transition-all duration-200  text-[#E9155B] font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm transition-all duration-200 hover:bg-[#FFF5F8]  font-Inter rounded  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          APPLIED JOBS
+        </NavLink>
+      </li>
 
-        {/* <img className="w-[55px] rounded-full" src={user?.photoURL}></img> */}
+      {/* <li>
+        <div className="dropdown hidden lg:block dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-[60px] rounded">
+              <img src={user?.photoURL} alt={user?.displayName} />
+            </div>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <button className="btn btn-sm  btn-ghost">
+                {user?.displayName}
+              </button>
+            </li>
+            <li>
+              <button className="btn btn-sm  btn-ghost" onClick={logOut}>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li> */}
+    </>
+  );
+  return (
+    <div className="py-4 flex  justify-between border-b-[2px] border-[#FF5CA4] pb-5 mb-5">
+      <div className="flex  items-center gap-2">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className=" lg:hidden">
+            <FaBars className="text-2xl text-[#E9155B]"></FaBars>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content z-[1] shadow  rounded-box bg-[#2C2C2C] w-52 text-[#E9155B] absolute -right-[140px] top-0"
+          >
+            {user ? navLinks : navlinksBeforeLogin}
+          </ul>
+        </div>
 
-       <li>
-       <div className="dropdown hidden lg:block dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-[60px] rounded-full">
-                    <img src={user?.photoURL} alt={user?.displayName} />
+        <div className="flex items-center gap-2">
+          <img
+            className="w-[50px] lg:w-[50px]"
+            src="https://i.ibb.co/cwFBJD2/Untitled-design.png"
+          ></img>
+          <h2 className="text-xl font-extrabold font-Inter"> LeapPro</h2>
+        </div>
+      </div>
+
+      <div className="flex items-center bg-[#ffe3e8]   p-3 rounded">
+        <ul className="hidden lg:block lg:flex gap-3 ">
+          {user ? navLinks : navlinksBeforeLogin}
+        </ul>
+      </div>
+
+      <div>
+        {user ? (
+          <div className="dropdown lg:block dropdown-end">
+            <div className="flex gap-3 items-center">
+              <label tabIndex={0} className="btn btn-ghost  btn-circle avatar">
+                <div className="w-[40px] rounded-full text-white">
+                  <img src={user?.photoURL} alt={user?.displayName} />
                 </div>
-            </label>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li>
-                    <button className="btn btn-sm  btn-ghost">{user?.displayName}</button>
-
-                </li>
-                <li>
-                    <button className="btn btn-sm  btn-ghost"
-                        onClick={logOut}
-                    >Logout</button>
-
-                </li>
+              </label>
+              <div>
+                <button
+                  onClick={logOut}
+                  className="text-sm flex items-center gap-1 font-Inter font-semibold  text-[#E9155B]"
+                >
+                  Logout <HiOutlineLogout className="text-xl"></HiOutlineLogout>
+                </button>
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box bg-[#2C2C2C]  "
+            >
+              <li className=" hover:bg-[#161515] py-1 px-1 rounded-xl text-white font-Inter text-center">
+                {user?.displayName}
+              </li>
             </ul>
-        </div>
-
-       </li>
-
-    </>
-    return (
-        <div className="flex px-10 -mx-12 lg:-mx-36 bg-[#9ADBF5] items-center flex-col lg:flex-row py-3 lg:py-4 justify-between  ">
-
-            {/* <div className="flex items-center">
-               <h2 className="text-3xl font-bold font-serif"> Job Portal</h2>
-            </div> */}
-
-            <div className="navbar-start flex items-center">
-                <div className="dropdown ">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </label>
-                    <ul tabIndex={0} className="text-sm font-inter font-medium  menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        {/* <li><a>Item 1</a></li>
-        <li><a>Item 1</a></li>
-        <li><a>Item 1</a></li> */}
-                        {
-                            user ? navLinks : navlinksBeforeLogin
-                        }
-
-                    </ul>
-                </div>
-              <div className="logo flex gap-1 items-center">
-                <div className="flex">
-                <div className="w-[25px] rounded-tr-full  h-[35px] bg-[#FFF]"></div>
-                <div className="w-[25px] rounded-tl-full  h-[35px] bg-[#1d2d5a]"></div>
-                </div>
-
-
-         <div className=" text-[27px] flex flex-col text-[#1d2d5a] font-bold font-serif">the 
-         <span className="-mt-6">muse</span>
-         </div>
-               
-                </div>
-
-            </div>
-
-            <div className="flex justify-center">
-                <ul className="hidden text-sm font-inter font-medium lg:flex justify-center items-center text-[#0B0B0B]  flex-col lg:flex-row gap-1 lg:gap-8  font-Inter">
-
-
-                    {
-                        user ? navLinks : navlinksBeforeLogin
-                    }
-
-                    {/* <NavLink to="/addProduct" className={({ isActive, isPending }) =>
-isPending ? "pending" : isActive ? "text-[#FF444A] underline" : ""
-}><li>Add Product</li></NavLink>
-
-        <NavLink to="/myCart" className={({ isActive, isPending }) =>
-isPending ? "pending" : isActive ? "text-[#FF444A]  underline" : ""
-}><li>My Cart</li></NavLink> */}
-
-
-
-
-                </ul>
-            </div>
-
-
-
-        </div>
-
-    );
+          </div>
+        ) : (
+          <button className="mt-1">
+            <NavLink
+              to="/login"
+              className={({ isActive, isPending }) =>
+                isPending
+                  ? "pending"
+                  : isActive
+                  ? "text-sm bg-[#FF5CA4] text-white font-Inter rounded  font-semibold py-2 px-4"
+                  : " text-sm hover:bg-[#FF5CA4] bg-[#E9155B] text-white  font-Inter rounded  font-semibold py-2 px-4"
+              }
+            >
+              Log in
+            </NavLink>
+          </button>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default NavBar;
