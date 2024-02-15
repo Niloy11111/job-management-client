@@ -36,7 +36,7 @@ const SingleJobInfo = ({ singlejobinfo }) => {
               className="w-[20px]"
               src="https://i.ibb.co/FnNWvXM/selection.png"
             ></img>{" "}
-            {jobPostingDate} APPLICANTS
+            {applicants} APPLICANTS
           </p>
         </div>
 
@@ -45,43 +45,13 @@ const SingleJobInfo = ({ singlejobinfo }) => {
         </div>
 
         <div className="flex justify-center  border-t mt-8 -mx-4">
-          <Link className="" to={`details/${_id}`}>
+          <Link className="" to={`/details/${_id}`}>
             <button className="mt-3 text-sm font-Inter  font-medium transition-all duration-200 px-5 py-2  rounded  border border-[#E9155B] hover:bg-[#E9155B] hover:text-white  text-[#E9155B] ">
               View Details{" "}
             </button>
           </Link>
         </div>
       </div>
-
-      {/* <div className="bg-[#FFF]  pb-3 border-b pr-4 rounded">
-        <div className="">
-          <div className="ml-3 flex justify-center rounded items-center w-[100px] bg-[FFF] border h-[100px]">
-            <img className="" src={logo}></img>
-          </div>
-
-          <div className="">
-            <h2 className="text-xl mb-1 font-medium font-Inter ">{jobTitle}</h2>
-            <p className="text-[#53565f]text-sm font-normal font-Inter">
-              Hiring Manager{" "}
-              <span className="bg-[#ebf8fd] hover:bg-[#9adbf5] ml-1 p-1 rounded">
-                {userName}
-              </span>{" "}
-            </p>
-            <p className="text-[#737478] text-sm">Posted on {jobPostingDate}</p>
-          </div>
-        </div>
-
-        <div>
-          <p>Deadline {applicationDeadline}</p>
-          <p>{salaryRange}</p>
-          <Link to={`details/${_id}`}>
-            {" "}
-            <button className="border border-[#1d2d5a] text-[#1d2d5a] text-sm hover:text-[#FFF] px-10 py-3 font-Inter font-normal rounded hover:bg-[#1d2d5a]">
-              VIEW JOB
-            </button>
-          </Link>
-        </div>
-      </div> */}
     </div>
   );
 };

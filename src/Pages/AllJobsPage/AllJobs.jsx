@@ -24,8 +24,6 @@ const AllJobs = () => {
     }
   }, [inputValue, titleUrl]);
 
-  console.log(inputValue);
-
   // const handleInputChange = (e) => {
   //     setInputValue(e.target.value);
   //   };

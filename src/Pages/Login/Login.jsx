@@ -80,105 +80,105 @@ const Login = () => {
   if (toogle) {
     return (
       <>
-        <div className="rounded mt-5 mb-10 -mx-14 flex lg:justify-center lg:items-center h-full lg:h-[84vh]">
-          <div className="lg:border border-[#5fa2bf] lg:p-6">
-            <div className="">
-              <form
-                onSubmit={handleLogin}
-                className="px-7 lg:px-14 rounded  lg:w-[570px]"
-              >
-                <h2 className="mb-10 text-[#009EE2] pt-7 font-Inter text-4xl font-bold text-center">
-                  Register Here
+        <div className="my-20  flex justify-center gap-20">
+          <div className="flex-1">
+            <div className="w-5/6 mx-auto">
+              <form onSubmit={handleLogin} className=" rounded  ">
+                <h2 className="mb-2 text-[#E9155B] uppercase   font-Inter text-3xl font-extrabold text-center">
+                  Create account
                 </h2>
+                <div
+                  onClick={handleGoogleLogin}
+                  className="rounded-xl cursor-pointer max-w-max mx-auto  justify-center flex items-center gap-2 mt-2  px-8 py-2 text-base border border-[#C5C5C5] bg-[#FFF]"
+                >
+                  <div className="flex items-center gap-2">
+                    <FcGoogle className="text-2xl"></FcGoogle>
+                  </div>
+                </div>
+
+                <p className="mt-4 mb-2">Or use your email address</p>
 
                 <div>
                   <input
-                    className="border-[#009EE2] pl-5 bg-[#FFF]  rounded-lg py-3 outline-none w-full block border pb-3 mb-8"
+                    className="border-[#C5C5C5] pl-2 bg-[#FFF]  rounded-lg py-3 outline-none  block border pb-3 mb-5 w-full mx-auto"
                     type="text"
                     placeholder="Your Name"
                     name="name"
                   />
-
                   <input
-                    className="border-[#009EE2] bg-[#FFF] rounded-lg py-3 outline-none w-full border b block pl-5 pb-3 mb-8"
-                    type="email"
-                    placeholder="Username or Email"
-                    name="email"
-                    required
-                  />
-
-                  <div className="relative mb-8">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="password"
-                      className="input input-bordered border-[#009EE2] rounded-lg py-3 outline-none block pl-5 pb-3  bg-[#FFF] w-full"
-                      name="password"
-                      required
-                    />
-
-                    <span
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="text-xl cursor-pointer absolute top-3 right-2"
-                    >
-                      {showPassword ? (
-                        <AiFillEye></AiFillEye>
-                      ) : (
-                        <AiFillEyeInvisible></AiFillEyeInvisible>
-                      )}
-                    </span>
-                  </div>
-
-                  <input
-                    className="border-[#009EE2] bg-[#FFF] border  pl-5 rounded-lg py-3 outline-none w-full block border-b pb-3 mb-4"
+                    className="border-[#C5C5C5] bg-[#FFF] border  pl-2 rounded-lg py-3 outline-none w-full mx-auto block border-b pb-3 mb-4"
                     type="text"
                     placeholder="Photo URL"
                     name="photo-url"
                     required
                   />
+
+                  <div className="flex gap-3">
+                    <div>
+                      <input
+                        className="border-[#C5C5C5] bg-[#FFF] rounded-lg py-3 outline-none w-full mx-auto border b block pl-2 pb-3 mb-5"
+                        type="email"
+                        placeholder="Username or Email"
+                        name="email"
+                        required
+                      />
+                    </div>
+
+                    <div className="relative mb-5">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="password"
+                        className="input input-bordered border-[#C5C5C5] rounded-lg py-3 outline-none block pl-2 pb-3  bg-[#FFF] w-full mx-auto"
+                        name="password"
+                        required
+                      />
+
+                      <span
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="text-xl cursor-pointer absolute top-3 right-2"
+                      >
+                        {showPassword ? (
+                          <AiFillEye></AiFillEye>
+                        ) : (
+                          <AiFillEyeInvisible></AiFillEyeInvisible>
+                        )}
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mb-3">
-                  <input type="checkbox" name="terms" id="terms" />
-                  <label className="mt-2 text-[#00000080] font-Inter">
-                    {" "}
-                    Accept our{" "}
-                  </label>
-                  <a className="text-blue-500">Terms and Conditions</a>
+                <div className="mb-3  ">
+                  <div className="text-sm uppercase font-bold">
+                    <input type="checkbox" name="terms" id="terms" />
+                    <label className="mt-2  "> Accept our </label>
+                    <a className="text-[#E9155B] ">Terms and Conditions</a>
+                  </div>
                 </div>
 
-                <button className="rounded-lg py-4 mx-auto w-full bg-[#009EE2]  mb-4 text-[#FFF] font-Inter font-semibold">
+                <button className="rounded-lg py-3 mx-auto w-full  bg-[#E9155B] mb-4 hover:bg-[#C90044] text-white font-Inter font-bold uppercase  transition-all duration-500">
                   Register
                 </button>
 
-                <p className="text-center text-base font-Inter text-[#00000080]">
+                <p className="text-center font-medium text-sm uppercase  font-Inter ">
                   Already have an account?{" "}
                   <a
                     onClick={() => setToogle(!toogle)}
-                    className="text-blue-600 cursor-pointer"
+                    className="text-[#E9155B] font-semibold cursor-pointer"
                   >
                     {" "}
                     Login{" "}
                   </a>{" "}
                 </p>
               </form>
+            </div>
+          </div>
 
-              <div className="flex mb-5 items-center gap-2 mt-6 justify-center">
-                <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
-                <p className="text-xl text-[#191A48]">Or</p>
-                <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
-              </div>
-
-              <div
-                onClick={handleGoogleLogin}
-                className="rounded-full cursor-pointer w-4/5 mx-auto justify-center flex items-center gap-2 mb-7 mt-2 py-3 text-base border border-[#009EE2] bg-[#FFF]"
-              >
-                <div className="flex items-center gap-2">
-                  <FcGoogle className="text-2xl"></FcGoogle>
-                  <h2 className="font-semibold text-[#00000080] font-Inter">
-                    Continue with Google
-                  </h2>
-                </div>
-              </div>
+          <div className="flex-1  transition-all duration-500  flex justify-centkeer items-center">
+            <div className="w-5/6 shadow-2xl  rounded-3xl">
+              <img
+                className=" "
+                src="https://i.ibb.co/vq8ZGc7/lock-isometric-icon-isolated-white-background-3d-isometric-red-color-padlock-sign-safety-concept-mob.png"
+              ></img>
             </div>
           </div>
         </div>
@@ -187,20 +187,36 @@ const Login = () => {
   } else {
     return (
       <>
-        <div className=" rounded flex justify-center items-center h-[83vh]">
-          <div className="lg:border border-[#5fa2bf]  -mt-20 lg:p-6">
-            <div>
-              <form
-                onSubmit={handleSignInUser}
-                className="px-8 lg:px-14 rounded lg:w-[570px]"
-              >
-                <h2 className="mb-14 text-[#009EE2] pt-9 font-Inter text-4xl font-bold text-center">
-                  Login Here
+        <div className="my-20  flex justify-center gap-10">
+          <div className="flex-1  transition-all duration-500  flex justify-center items-center">
+            <div className=" shadow-2xl  rounded-3xl">
+              <img
+                className=" "
+                src="https://i.ibb.co/4PwY2r3/download-2.png"
+              ></img>
+            </div>
+          </div>
+
+          <div className="flex-1">
+            <div className="w-4/6 mx-auto">
+              <form onSubmit={handleSignInUser} className="">
+                <h2 className="mb-2 text-[#E9155B] uppercase   font-Inter text-3xl font-extrabold text-center">
+                  Log In
                 </h2>
+                <div
+                  onClick={handleGoogleLogin}
+                  className="rounded-xl cursor-pointer max-w-max mx-auto  justify-center flex items-center gap-2 mt-2  px-8 py-2 text-base border border-[#C5C5C5] bg-[#FFF]"
+                >
+                  <div className="flex items-center gap-2">
+                    <FcGoogle className="text-2xl"></FcGoogle>
+                  </div>
+                </div>
+
+                <p className="mt-4 mb-2">Or use your email address</p>
 
                 <div>
                   <input
-                    className="border-[#009EE2] bg-[#FAFAFB] rounded-lg py-3 outline-none w-full border b block pl-5 pb-3 mb-8"
+                    className="border-[#C5C5C5] bg-[#FFF] border  pl-2 rounded-lg py-3 outline-none w-full mx-auto block border-b pb-3 mb-4"
                     type="emial"
                     placeholder="Username or Email"
                     name="email"
@@ -208,7 +224,7 @@ const Login = () => {
                   />
 
                   <input
-                    className="border-[#009EE2] bg-[#FAFAFB] border  rounded-lg py-3 outline-none w-full block pl-5 pb-3 mb-10"
+                    className="border-[#C5C5C5] bg-[#FFF] border  pl-2 rounded-lg py-3 outline-none w-full mx-auto block border-b pb-3 mb-4"
                     type="password"
                     placeholder="password"
                     name="password"
@@ -216,39 +232,21 @@ const Login = () => {
                   />
                 </div>
 
-                <button className="rounded-lg py-4 mx-auto w-full bg-[#009EE2]  mb-4 text-[#FFF] font-Inter font-semibold">
+                <button className="rounded-lg py-3 mx-auto w-full  bg-[#E9155B] mb-4 hover:bg-[#C90044] text-white font-Inter font-bold uppercase  transition-all duration-500">
                   Login
                 </button>
 
-                <p className="text-center text-base font-Inter text-[#191A48]">
+                <p className="text-center font-medium text-sm uppercase  font-Inter ">
                   Don't have an account?{" "}
                   <a
                     onClick={() => setToogle(!toogle)}
-                    className="text-blue-600 cursor-pointer"
+                    className="text-[#E9155B] font-semibold cursor-pointer"
                   >
                     {" "}
                     Create an Account
                   </a>{" "}
                 </p>
               </form>
-
-              <div className="flex mb-5 items-center gap-2 mt-6 justify-center">
-                <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
-                <p className="text-xl text-[#191A48]">Or</p>
-                <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
-              </div>
-
-              <div
-                onClick={handleGoogleLogin}
-                className=" rounded-full cursor-pointer w-4/5 mx-auto justify-center flex items-center gap-2 mb-12 mt-2 py-3 text-base border border-[#009EE2] bg-[#FFF]"
-              >
-                <div className="flex items-center gap-2">
-                  <FcGoogle className="text-2xl"></FcGoogle>
-                  <h2 className="font-semibold text-[#191A48] font-Inter">
-                    Continue with Google
-                  </h2>
-                </div>
-              </div>
             </div>
           </div>
         </div>

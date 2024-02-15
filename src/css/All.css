@@ -14,3 +14,14 @@
   color: white;
   font-family: Inter;
 }
+
+/* add job page css */
+.threeDContainer:hover .threeDimage {
+  transform: translateY(-3.5rem);
+}
+
+.threeDContainer:hover .title {
+  display: block;
+}
+
+/* myJobs page candidate css */

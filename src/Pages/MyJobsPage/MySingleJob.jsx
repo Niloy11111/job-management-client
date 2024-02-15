@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiBriefcase } from "react-icons/bi";
-import { MdOutlineTipsAndUpdates } from "react-icons/md";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import SingleResume from "./SingleResume";
 
 const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
   const {
@@ -31,10 +28,6 @@ const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
       .then((res) => res.json())
       .then((data) => setResume(data));
   }, []);
-
-  console.log("resume", resume);
-
-  console.log(jobTitle);
 
   const handleDeleteProduct = (_id) => {
     Swal.fire({
@@ -68,58 +61,77 @@ const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
   };
 
   return (
-    <div>
-      <div className="bg-[#FFF] hover:border-2 border-[#9adbf5] hover:shadow-xl p-6 rounded-lg  transition-all duration-150 cursor-pointer ">
-        <div className="flex gap-1  items-center">
-          <img className="w-[80px]" src={logo}></img>
-          <p className="text-[#00788C] text-sm font-Inter font-medium">NEW!</p>
-        </div>
+    <div className="">
+      <div className=" p-6 border rounded-lg  transition-all duration-150  ">
+        <div className="flex gap-3">
+          <div className="flex justify-center items-center bg-[#ffe3e8] max-w-max py-2 px-2 rounded h-[50px]">
+            <img className="w-[70px] " src={logo}></img>
+          </div>
 
-        <h3 className="mt-4 mb-2 text-[#230939] text-lg font-semibold font-Inter">
-          {jobTitle}
-        </h3>
-        <p className="text-[#666666] text-sm font-Inter font-normal">
-          Posted By {userName}
-        </p>
-        <p className="text-[#666666] text-sm font-Inter font-normal">
-          Posted On {jobPostingDate}
-        </p>
-        <p className="text-[#666666] text-sm font-Inter font-normal">
-          Last Date Of Application {applicationDeadline}
-        </p>
-
-        <div className="flex gap-2 mt-3">
-          <p className="flex items-center gap-2 bg-[#F2F2F2] max-w-fit py-1 px-2 rounded text-sm font-Inter font-medium">
-            {" "}
-            <BiBriefcase></BiBriefcase> {jobCategory}{" "}
-          </p>
-
-          <p className="bg-[#F2F2F2] max-w-fit py-1 px-2 text-sm font-Inter font-medium rounded">
-            {" "}
-            {salaryRange} Per Year
-          </p>
+          <div>
+            <h3 className=" text-lg font-bold font-Inter">{jobTitle}</h3>
+            <p className="-mt-1 text-sm font-Inter font-normal">
+              Posted By {userName}
+            </p>
+          </div>
         </div>
 
         <p className="mt-4 text-sm text-[#424242] font-normal font-Inter">
-          {description?.slice(0, 270)}
+          {description?.slice(0, 193)}.
         </p>
 
-        <div className="flex gap-3 mt-5">
-          <Link className="flex-1 " to={`updateJobs/${_id}`}>
-            {" "}
-            <button className="gap-3 flex items-center justify-center py-2 w-full rounded border-2 border-[#6E46AE] text-sm hover:bg-[#6E46AE] text-[#6E46AE] hover:text-[#FFF] font-semibold bg-[#FFF] ">
-              <MdOutlineTipsAndUpdates></MdOutlineTipsAndUpdates> UPDATE
-            </button>
-          </Link>
-          <button
-            onClick={() => handleDeleteProduct(_id)}
-            className="flex-1 flex items-center justify-center py-2 border-2 gap-3 border-[#D9DBE9] hover:bg-[#D9DBE9] text-[#6E46AE] rounded font-semibold text-sm"
-          >
-            <RiDeleteBin6Line></RiDeleteBin6Line> DELETE
-          </button>
+        <div className="flex justify-between mt-5">
+          <p className=" text-sm font-Inter font-normal">
+            Posted On {jobPostingDate}
+          </p>
+          <p className=" text-sm font-Inter font-normal">
+            Last Date {applicationDeadline}
+          </p>
         </div>
 
-        <h2 className="my-4 font-Inter font-semibold">
+        <div className="flex justify-between mt-3">
+          <p className="flex items-center gap-2 bg-[#ffe3e8]  max-w-fit py-1 px-3 rounded text-sm font-Inter font-medium">
+            {" "}
+            <BiBriefcase className="text-[#E9155B]"></BiBriefcase> {jobCategory}{" "}
+          </p>
+
+          <p className="bg-[#ffe3e8]  max-w-fit py-1 px-3 text-sm font-Inter font-medium rounded">
+            {" "}
+            {salaryRange}/{" "}
+            <span className="text-[#E9155B] text-[12px]">Yearly</span>
+          </p>
+        </div>
+
+        <div className="flex justify-center gap-5 mt-5">
+          <Link to={`updateJobs/${_id}`} className="flex justify-center ">
+            <button className="text-sm font-Inter  font-medium transition-all duration-200 pl-5  rounded bg-[#E9155B] text-white flex justify-center items-center">
+              Update{" "}
+              <button className="bg-white  m-0.5 text-[#E9155B] p-2 ml-2 rounded">
+                <img
+                  className="w-[15px]"
+                  src="https://i.ibb.co/BnQ0Kmr/update.png"
+                ></img>
+              </button>
+            </button>
+          </Link>
+
+          <Link>
+            <button
+              onClick={() => handleDeleteProduct(_id)}
+              className="text-sm font-Inter  font-medium transition-all duration-200 pl-5  rounded bg-[#E9155B] text-white flex justify-center items-center"
+            >
+              DELETE{" "}
+              <button className="bg-white  m-0.5 text-[#E9155B] p-2 ml-2 rounded">
+                <img
+                  className="w-[15px]"
+                  src="https://i.ibb.co/V2zWMry/delete.png"
+                ></img>
+              </button>
+            </button>
+          </Link>
+        </div>
+
+        {/* <h2 className="my-4 font-Inter font-semibold">
           {resume.length} Resume For {jobTitle}
         </h2>
 
@@ -127,7 +139,7 @@ const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
           {resume.map((item) => (
             <SingleResume item={item} key={item._id}></SingleResume>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

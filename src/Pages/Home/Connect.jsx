@@ -13,8 +13,8 @@ const Connect = () => {
       <div className="flex lg:flex-row flex-col-reverse justify-center gap-10 lg:gap-20  items-center">
         <div className="flex-1">
           <h2 className="text-2xl uppercase    font-Inter font-extrabold">
-            WE help you to connect with
-            <span className=" text-[#EB3656]"> the organization</span>
+            Our mission is to connect you with
+            <span className=" text-[#EB3656]"> your dream company</span>
           </h2>
           <p className=" font-Inter my-6 ">
             At LeapPro, our goal is simple: to connect you with the right
@@ -31,17 +31,22 @@ const Connect = () => {
             brighter future with LeapPro.
           </p>
 
-          <div className="mt-5">
-            <Link to={`/login`}>
-              <button className="text-sm font-Inter  font-medium transition-all duration-200 pl-5  rounded-full bg-[#E9155B] text-white ">
-                Get Started{" "}
-                <button className="bg-white  m-0.5 text-[#E9155B] p-3 ml-4 rounded-full">
-                  <FaArrowRightLong></FaArrowRightLong>{" "}
-                </button>
-              </button>
-            </Link>
+          <div className="mt-5 flex gap-5">
+            <div className="max-w-max ">
+              <Link
+                to={`/addAJob`}
+                className="flex text-sm font-Inter   font-medium transition-all duration-200   rounded-full bg-[#E9155B] text-white   justify-center items-center "
+              >
+                <div className=" ml-3    flex items-center gap-3">
+                  Get Started{" "}
+                  <button className="bg-white m-0.5 mt-0.5 p-3  text-[#E9155B] rounded-full">
+                    <FaArrowRightLong></FaArrowRightLong>{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
 
-            <Link className="ml-5" to={`/`}>
+            <Link className="" to={`/`}>
               <button className="hover:bg-[#E9155B] hover:text-white  text-sm font-Inter  font-medium transition-all duration-300 px-5 py-2  rounded-full border border-[#E9155B] text-[#E9155B] ">
                 Upload Resume{" "}
               </button>

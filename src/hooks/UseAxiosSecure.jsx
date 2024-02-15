@@ -3,14 +3,13 @@ import { useNavigate } from "react-router-dom";
 import UseAuth from "./UseAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "https://job-management-server-eight.vercel.app",
+  baseURL: "https://job-management-server-eight.vercel.app/",
 });
 
 const UseAxiosSecure = () => {
   const navigate = useNavigate();
   const { logOut } = UseAuth();
 
-  // request interceptor to add authorization header for every secure call to teh api
   axiosSecure.interceptors.request.use(
     function (config) {
       const token = localStorage.getItem("access-token");

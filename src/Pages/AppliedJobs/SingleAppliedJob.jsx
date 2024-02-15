@@ -1,29 +1,68 @@
-import { CgMail } from "react-icons/cg";
-import { FcBusinessman } from "react-icons/fc";
-import { RxResume } from "react-icons/rx";
+import { BiBriefcase } from "react-icons/bi";
+const SingleAppliedJob = ({ item }) => {
+  const {
+    _id,
+    userName,
+    email,
+    jobCreatorEmail,
+    jobTitle,
+    jobCategory,
+    resume,
+    photo,
+    logo,
+    candidatesImage,
+    hiringManagerName,
+    hiringManagerImage,
+  } = item;
 
-const SingleAppliedJob = ({item}) => {
-    const {userName, email, resume , photo, logo, jobTitle , jobCategory} = item ;
-    
+  console.log("from applied job", item);
 
-    return (
-        <div className="border bg-[#FFF] rounded p-4">
-
-            <div className="flex r justify-between">
-            <div>
-            <h2 className="flex items-center gap-2"> <FcBusinessman className="text-2xl"></FcBusinessman> {userName}</h2>
-            <h2 className="mt-2 flex gap-2 items-center">  <CgMail className="text-2xl"></CgMail> {email}</h2>
-            <h2 className="mt-2 flex gap-2 items-center">  <RxResume className="text-2xl"></RxResume> {jobCategory}  . </h2>
-             
-             {/* <h2 className="block">Your resume here link {resume}</h2> */}
-            </div>
-            <div className="ml-3 flex justify-center rounded items-center w-[100px] bg-[FFF] border h-[100px]">
-                        <img className="" src={logo}></img>
-                    </div>
-            </div>
-           
+  return (
+    <div className=" bg-[#F7F7F7] rounded p-4">
+      <div className=" justify-between">
+        <div className=" max-w-fit px-2 py-1  mt-4  flex items-center gap-2">
+          <img
+            className="w-[40px] h-[40px] rounded-full"
+            src={hiringManagerImage}
+          ></img>
+          <div>
+            <p className=" text-sm mb-1  font-Inter ">
+              {" "}
+              {hiringManagerName}, Hiring Manager
+            </p>
+            <p className="bg-[#ffe3e8]  max-w-fit py-1 px-3 text-sm font-Inter font-medium rounded">
+              {" "}
+              {jobCreatorEmail}
+            </p>
+          </div>
         </div>
-    );
+
+        <div className="flex justify-center gap-5 mt-2">
+          <p className="flex items-center gap-2 bg-[#ffe3e8]  max-w-fit py-1 px-3 rounded text-sm font-Inter font-medium">
+            {" "}
+            <BiBriefcase className="text-[#E9155B]"></BiBriefcase> {jobCategory}{" "}
+          </p>
+
+          <button
+            className="text-sm font-Inter  
+        font-medium transition-all duration-300  rounded-full bg-[#E9155B] hover:bg-[#C90044] text-white flex gap-1 justify-center items-center pl-2"
+          >
+            Your Resume{" "}
+            <button className="bg-white p-1 m-0.5 text-[#E9155B]  rounded-full">
+              <img
+                className="w-[15px]"
+                src="https://i.ibb.co/Jvk6tTQ/resume.png"
+              ></img>
+            </button>
+          </button>
+        </div>
+
+        <div className="w-5/6 mt-3  flex justify-center  mx-auto rounded items-center  bg-[FFF] border h-[70px]">
+          <img className="w-[100px]" src={logo}></img>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default SingleAppliedJob;

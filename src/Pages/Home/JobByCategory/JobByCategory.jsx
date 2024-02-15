@@ -8,6 +8,8 @@ import "./TabCss/Tab.css";
 const JobByCategory = () => {
   const [allJobs, loading, refetch] = UseJobs();
 
+  console.log("ksdjfdksf", allJobs);
+
   const onSiteJobs = allJobs.filter((item) => item.jobCategory === "On Site");
   const remoteJobs = allJobs.filter((item) => item.jobCategory === "Remote");
   const partTimeJobs = allJobs.filter(

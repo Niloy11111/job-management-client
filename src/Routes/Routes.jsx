@@ -45,24 +45,7 @@ export const router = createBrowserRouter([
           fetch(
             `https://job-management-server-eight.vercel.app/alljobs/${params.id} `
           ),
-        element: (
-          <PrivateRoute>
-            <SingleJobDetails></SingleJobDetails>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "allJobs/details/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://job-management-server-eight.vercel.app/alljobs/${params.id} `
-          ),
-        element: (
-          <PrivateRoute>
-            {" "}
-            <SingleJobDetails></SingleJobDetails>
-          </PrivateRoute>
-        ),
+        element: <SingleJobDetails></SingleJobDetails>,
       },
       {
         path: "/allJobs",

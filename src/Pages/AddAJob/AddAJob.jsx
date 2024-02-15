@@ -4,8 +4,10 @@ import DatePicker from "react-datepicker";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from "react-helmet";
+import { BiSolidAddToQueue } from "react-icons/bi";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import "../../css/All.css";
 
 const AddAJob = () => {
   const { user } = useContext(AuthContext);
@@ -27,6 +29,7 @@ const AddAJob = () => {
     const email = user?.email;
     const hiringManager = user?.photoURL;
     const logo = form.logoURL.value;
+    const about = form.about.value;
 
     const jobInfo = {
       PictureURL,
@@ -41,7 +44,9 @@ const AddAJob = () => {
       email,
       hiringManager,
       logo,
+      about,
     };
+
     console.log(jobInfo);
 
     axios
@@ -64,26 +69,30 @@ const AddAJob = () => {
       </Helmet>
 
       <h2 className="text-center my-20 text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
-        you can add <span className="text-[#E9155B] "> the job here</span>
+        add <span className="text-[#E9155B] "> job here</span>
       </h2>
 
-      <div className="flex items-center gap-20 justify-between">
-        <div>
-          <img
-            className="rounded-3xl 
-          "
-            src="https://i.ibb.co/LzZPFWf/c3e93b9535b3689c4230cc1672691483.jpg"
-          ></img>
+      <div className="flex items-center  gap-20 justify-between">
+        <div className="bg-[#E9155B] rounded-3xl shadow-xl h-[30vh] w-[35%] mx-auto  threeDContainer">
+          <div className=" -mt-20 rounded-3xl bg-[#ffe3e8] threeDimage mx-10  transition-all duration-500 shadow-2xl">
+            <img
+              className="w-[320px] h-[300px]  mx-auto"
+              src="https://i.ibb.co/48MRTVx/2209-i201-035-S-m004-c13-mobile-app-development-isometric-removebg-preview.png"
+            ></img>
+          </div>
+          <h2 className="title text-center my-20 text-2xl  font-Inter font-extrabold uppercase -mt-10 text-white hidden">
+            Hire Talent
+          </h2>
         </div>
 
         <div className="w-2/4 relative">
-          <h2 className=" my-5 text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
+          <h2 className=" my-5 text-xl lg:text-2xl font-Inter font-extrabold uppercase">
             Required <span className="text-[#E9155B] "> information</span>
           </h2>
           <form className="" onSubmit={handleAddJob}>
             <div className="">
               <input
-                className=" pl-5   rounded py-3 outline-none w-full block border pb-3 mb-4"
+                className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
                 type="text"
                 placeholder="Job Title"
                 name="jobTitle"
@@ -92,7 +101,7 @@ const AddAJob = () => {
 
               <div className="flex gap-4">
                 <input
-                  className=" pl-5   rounded py-3 outline-none w-full block border pb-3 mb-6"
+                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-6"
                   type="text"
                   placeholder="Photo URL"
                   src=""
@@ -101,7 +110,7 @@ const AddAJob = () => {
                 />
 
                 <input
-                  className=" pl-5   rounded py-3 outline-none w-full block border pb-3 mb-6"
+                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-6"
                   type="text"
                   placeholder="Logo URL"
                   src=""
@@ -112,16 +121,23 @@ const AddAJob = () => {
 
               <div className="flex gap-4 relative">
                 <input
-                  className=" pl-5   rounded py-3 outline-none w-full block border pb-3 mb-4"
+                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
                   type="text"
                   defaultValue={user?.displayName}
                   placeholder="User Name"
                   name="userName"
                   id=""
                 />
+                <input
+                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
+                  type="text"
+                  placeholder="Salary"
+                  name="salaryRange"
+                  id=""
+                />
 
                 <select
-                  className=" pl-5   rounded py-3 outline-none w-full block border pb-3 mb-4"
+                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
                   type="text"
                   placeholder="Product Type"
                   name="jobCategory"
@@ -136,13 +152,13 @@ const AddAJob = () => {
               <div className="flex gap-3 ">
                 <input
                   type="date"
-                  className=" pl-5   rounded py-3 outline-none w-full block border pb-3 mb-6"
+                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-6"
                   name="jobPostingDate"
                   id="birthday"
                 />
 
                 <DatePicker
-                  className=" pl-5   rounded py-3 outline-none  block border pb-3 mb-6"
+                  className=" pl-5   rounded-full py-3 outline-none  block border pb-3 mb-6"
                   name="applicationDeadline"
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
@@ -151,13 +167,22 @@ const AddAJob = () => {
                 <input
                   type="number"
                   defaultValue={0}
-                  className="pl-2    rounded py-3 outline-none w-full block border pb-3 mb-6"
+                  className="pl-2    rounded-full py-3 outline-none w-full block border pb-3 mb-6"
                   name="applicants"
                 />
               </div>
 
               <textarea
-                className=" pl-5   rounded py-3 outline-none w-full block border pb-3 mb-4"
+                className=" pl-5   rounded-3xl py-3 outline-none w-full block border pb-3 mb-4"
+                type="text"
+                placeholder="About Company"
+                name="about"
+                id=""
+                cols="50"
+                rows="2"
+              ></textarea>
+              <textarea
+                className=" pl-5 mb-8  rounded-3xl py-3 outline-none w-full block border pb-3 "
                 type="text"
                 placeholder="Job Description"
                 name="description"
@@ -166,12 +191,16 @@ const AddAJob = () => {
                 rows="5"
               ></textarea>
 
-              <button className="w-full bg-[#E9155B] py-3 rounded text-[#FFF] text-base font-Inter font-medium">
+              <button className="px-4  bg-[#E9155B] hover:bg-[#C90044] py-2.5 rounded-full text-[#FFF] text-sm font-Inter font-medium flex items-center gap-2 justify-center">
                 {" "}
                 Add This Job{" "}
+                <p className="text-white">
+                  {" "}
+                  <BiSolidAddToQueue className=" text-white"></BiSolidAddToQueue>
+                </p>{" "}
               </button>
 
-              <h2 className="bottom-[250px] right-4 font-Inter absolute">
+              <h2 className="bottom-[340px] right-3 font-Inter absolute">
                 Applicants
               </h2>
             </div>

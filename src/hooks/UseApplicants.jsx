@@ -1,22 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "./UseAxiosPublic";
 
-const UseJobs = () => {
+const useApplicants = () => {
   const axiosPublic = UseAxiosPublic();
 
   const {
-    data: allJobs = [],
+    data: applicantsInfo = [],
     isPending: loading,
     refetch,
   } = useQuery({
-    queryKey: ["allJobs"],
+    queryKey: ["applicantsInfo"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/allJobs");
+      const res = await axiosPublic.get("/myEmployees");
       return res.data;
     },
   });
 
-  return [allJobs, loading, refetch];
+  return [applicantsInfo, loading, refetch];
 };
 
-export default UseJobs;
+export default useApplicants;

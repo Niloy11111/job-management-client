@@ -18,7 +18,7 @@ const Banner = () => {
               perfect match today!
             </p>
             <div className="flex items-center mt-8 relative">
-              <BsSearch className="absolute left-3 text-red-500"></BsSearch>
+              <BsSearch className="absolute left-3 text-[#E9155B]"></BsSearch>
 
               <input
                 name="category"
@@ -28,7 +28,7 @@ const Banner = () => {
                 placeholder="Search jobs or companies"
               />
 
-              <button className="ml-4 hover:bg-[#FF5CA4] bg-[#E9155B] px-7 py-2.5 transition-all text-white font-Inter duration-300  rounded-full">
+              <button className="ml-4 hover:bg-[#C90044] bg-[#E9155B] px-7 py-2.5 transition-all text-white font-Inter duration-300  rounded-full">
                 Explore
               </button>
             </div>

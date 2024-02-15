@@ -76,7 +76,7 @@ const Footer = () => {
             id=""
           />
 
-          <button className=" hover:bg-[#FF5CA4] bg-[#E9155B] w-full py-2.5 transition-all text-white font-Inter duration-300  rounded mt-3">
+          <button className=" hover:bg-[#C90044] bg-[#E9155B] w-full py-2.5 transition-all text-white font-Inter duration-300  rounded mt-3">
             SUBSCRIBE{" "}
           </button>
         </div>
