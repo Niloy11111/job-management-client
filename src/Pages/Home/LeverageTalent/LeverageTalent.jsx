@@ -13,12 +13,12 @@ const LeverageTalent = () => {
       <h2 className="  text-center text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
         Popular <span className="text-[#E9155B]">Categories</span>
       </h2>
-      <p className="mb-16 mt-1 text-center  text-[#333] font-medium font-Inter">
+      <p className=" mb-10 lg:mb-16 mt-1 text-center  text-[#333] font-medium font-Inter text-sm lg:text-base">
         Find the ultimate hub for top business, design, and tech talent, set to
         tackle global initiatives.
       </p>
 
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid lg:grid-cols-4 gap-6">
         <div className="bg-[#F7F7F7] popularContainer hover:bg-[#E9155B]  transition duration-300 p-5 rounded">
           <div className="bg-[#ffe3e8] max-w-max px-7 mx-auto rounded-full pt-6 pb-2">
             <img className="w-[40px]   mb-6" src={img1}></img>

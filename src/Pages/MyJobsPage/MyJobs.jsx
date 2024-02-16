@@ -50,11 +50,7 @@ const MyJobs = () => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire(
-                "Deleted!",
-                "Your Product has been deleted.",
-                "success"
-              );
+              Swal.fire("Deleted!", "Application has been deleted.", "success");
               const remaining = myJobsCandidate.filter(
                 (cart) => cart._id !== _id
               );
@@ -65,14 +61,13 @@ const MyJobs = () => {
     });
   };
 
-  console.log("nowsdf", myJobsCandidate);
   return (
     <div className="">
       <Helmet>
-        <title>My Jobs -LeepPro </title>
+        <title>My Jobs | LeepPro </title>
       </Helmet>
 
-      <div className="flex gap-32 items-center my-20">
+      <div className="flex lg:flex-row flex-col gap-14 lg:gap-32 items-center my-20">
         <div className="bg-[#E9155B] flex justify-center  rounded-3xl flex-1">
           <img src="https://i.ibb.co/k57k8QT/Free-Photo-Surprised-unshaven-man-holds-phone-shows-empty-space-above-points-index-finger-wears-spec.png"></img>
         </div>
@@ -102,7 +97,7 @@ const MyJobs = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20">
         {myJobs.map((myjob) => (
           <MySingleJob
             key={myjob._id}
@@ -122,7 +117,7 @@ const MyJobs = () => {
           <span className="text-[#E9155B] "> Candidates </span>
         </h2>
 
-        <div className="grid grid-cols-5 gap-6 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
           {creatorJobCandidate.map((item) => (
             <SingleCandidate
               item={item}

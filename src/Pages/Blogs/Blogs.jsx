@@ -4,7 +4,7 @@ const Blogs = () => {
   return (
     <div>
       <Helmet>
-        <title>Blog -LeepPro </title>
+        <title>Blog | LeepPro </title>
       </Helmet>
       <div className="my-14">
         <h1 className="text-3xl uppercase lg:text-4xl  font-extrabold  font-Inter text-center mb-6">

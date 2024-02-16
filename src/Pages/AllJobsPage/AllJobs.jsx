@@ -36,16 +36,16 @@ const AllJobs = () => {
   };
 
   return (
-    <div className="mt-20 font-Inter  mb-32">
+    <div className="font-Inter  lg:mb-32">
       <Helmet>
-        <title>All Jobs -LeepPro </title>
+        <title>All Jobs | LeepPro </title>
       </Helmet>
 
-      <div className="my-20 flex items-center justify-center">
-        <div className="flex-1 flex gap-6">
+      <div className="my-20  flex lg:flex-row flex-col items-center justify-center gap-10 lg:gap-0">
+        <div className="flex-1 flex gap-3 lg:gap-6">
           <div>
             <img
-              className="ml-24 mt-20 w-[140px] rounded-xl mb-4"
+              className="lg:ml-24 ml-2 mt-14 lg:mt-20 w-[140px] rounded-xl mb-4"
               src="https://i.ibb.co/q9ynSqj/4ad80ce869c32901e89738d16c0d3be4.jpg"
             ></img>
             <img
@@ -53,7 +53,7 @@ const AllJobs = () => {
               src="https://i.ibb.co/16fPpSq/144dfd1512e7e0ea09f471d7a3a8378f.jpg"
             ></img>
           </div>
-          <div className="mt-8">
+          <div className="lg:mt-8">
             <img
               className="rounded-t-3xl rounded-bl-3xl  rounded-br-[999px]"
               src="https://i.ibb.co/wYT5yf2/ab5963fca54c755c399d1fed0540d133.jpg"
@@ -62,13 +62,13 @@ const AllJobs = () => {
         </div>
 
         <div className="flex-1">
-          <h2 className=" text-3xl text-center lg:text-4xl font-Inter font-extrabold uppercase">
+          <h2 className=" text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
             Grow your career{" "}
             <span className="text-[#E9155B] ">
               through <span className="normal-case">LeepPro</span>{" "}
             </span>
           </h2>
-          <p className=" mt-2 text-center  font-Inter text-[#494e5d]">
+          <p className=" mt-2   font-Inter text-[#494e5d]">
             Elevate your professional journey with LeepPro's comprehensive job
             listings. Explore diverse opportunities in accounting, development,
             marketing, research, production, media, customer support, and
@@ -76,8 +76,8 @@ const AllJobs = () => {
             with top-tier talent and career-defining roles. Empower your career
             trajectory today.
           </p>
-          <div className="flex justify-center mt-8">
-            <Link className="ml-5" to={`/login`}>
+          <div className="mt-4">
+            <Link className="" to={`/login`}>
               <button className="text-sm font-Inter  font-medium transition-all duration-200 px-5 py-2  rounded-full border border-[#E9155B] hover:bg-[#E9155B] hover:text-white  text-[#E9155B] ">
                 Upload Resume{" "}
               </button>
@@ -86,11 +86,11 @@ const AllJobs = () => {
         </div>
       </div>
 
-      <h2 className="mb-16 text-center text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
+      <h2 className="mb-8 lg:mb-16 text-center text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
         Explore Your <span className="text-[#E9155B] ">Dream Job</span>
       </h2>
 
-      <div className="mt-6 bg-[#E9155B] rounded-xl mb-16 lg:mt-10 w-2/6  border-[#1d2d5a] text-white searchContainer ">
+      <div className="mt-6 bg-[#E9155B] rounded-xl mb-16 lg:mt-10 lg:w-2/6   text-white searchContainer ">
         <form onSubmit={handleButtonClick} className="flex rounded " action="">
           <button
             type="submit"
@@ -109,7 +109,7 @@ const AllJobs = () => {
         </form>
       </div>
 
-      <div className="grid gap-6 grid-cols-3 ">
+      <div className="grid gap-6 grid-cols-1 lg:grid-cols-3 ">
         {allJobs?.map((singlejobinfo) => (
           <SingleJobInfo
             singlejobinfo={singlejobinfo}

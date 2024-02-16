@@ -3,7 +3,7 @@ import { default as DatePicker } from "react-datepicker";
 import { BiSolidAddToQueue } from "react-icons/bi";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const UpdateJob = () => {
   const { user } = useContext(AuthContext);

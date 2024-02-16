@@ -37,7 +37,7 @@ const AppliedJob = () => {
   return (
     <div className="mb-24">
       <Helmet>
-        <title>Applied Job -LeepPro </title>
+        <title>Applied Job | LeepPro </title>
       </Helmet>
 
       <div className=" flex gap-4  flex-col-reverse lg:flex-row justify-center ">

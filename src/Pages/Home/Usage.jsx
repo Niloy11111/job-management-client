@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const Usage = () => {
   return (
-    <div className="flex gap-10  ">
-      <div className="bg-[#9BDEAC] flex gap-5 items-center w-full rounded-3xl p-5">
+    <div className="mt-14 lg:mt-0 flex gap-5 lg:gap-10  lg:flex-row flex-col-reverse   ">
+      <div className="bg-[#9BDEAC] flex lg:flex-row flex-col-reverse  gap-5 items-center w-full rounded-3xl p-5">
         <div>
           <h2 className="  text-2xl mb-1  font-Inter font-extrabold uppercase">
             For Employers
           </h2>
-          <p className=" font-Inter text-[#494e5d]">
+          <p className="text-sm lg:text-base font-Inter text-[#494e5d]">
             Connect with top talent effortlessly. Post jobs now to find the
             perfect candidates for your team
           </p>
@@ -30,18 +30,18 @@ const Usage = () => {
         </div>
         <div>
           <img
-            className="w-[500px]"
+            className="w-[200px] lg:w-[500px]"
             src="https://i.ibb.co/sK2BrtG/Designer-girl-cuate.png"
           ></img>
         </div>
       </div>
 
-      <div className="bg-[#FFCAFF] flex gap-5 items-center w-full rounded-3xl p-5">
+      <div className="bg-[#FFCAFF] flex lg:flex-row flex-col-reverse  gap-5 items-center w-full rounded-3xl p-5">
         <div>
           <h2 className="  text-2xl  font-Inter font-extrabold uppercase">
             For Employee
           </h2>
-          <p className="font-Inter text-[#494e5d]">
+          <p className="text-sm lg:text-base font-Inter text-[#494e5d]">
             Discover exciting career opportunities. Upload your CV today and
             take the next step towards your dream job.
           </p>
@@ -62,7 +62,7 @@ const Usage = () => {
         </div>
         <div>
           <img
-            className="w-[500px]"
+            className="w-[200px] lg:w-[500px]"
             src="https://i.ibb.co/XpFW1Yx/Design-inspiration-bro.png"
           ></img>
         </div>

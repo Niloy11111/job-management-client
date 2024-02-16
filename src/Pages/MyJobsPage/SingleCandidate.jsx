@@ -23,7 +23,7 @@ const SingleCandidate = ({ item, handleDelete }) => {
     <div className="candidateContainer   p-3 rounded-xl bg-[#F7F7F7]    transition-all duration-300">
       <div className="flex justify-center ">
         <img
-          className="w-[70px] h-[70px] rounded-full"
+          className="w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] rounded-full"
           src={candidatesImage}
         ></img>
       </div>
@@ -34,7 +34,7 @@ const SingleCandidate = ({ item, handleDelete }) => {
       <h2 className="font-Inter text-center font-medium text-sm ">
         {jobTitle}
       </h2>
-      <div className="flex gap-5">
+      <div className="flex  lg:flex-row flex-col gap-2 lg:gap-5">
         <Link to={resume}>
           <div className="flex justify-center mt-4">
             <button
@@ -52,11 +52,11 @@ const SingleCandidate = ({ item, handleDelete }) => {
           </div>
         </Link>
         <Link>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center lg:mt-4">
             <button
               onClick={() => handleDelete(_id)}
               className="text-sm font-Inter  
-        font-medium transition-all duration-300  rounded-full bg-[#E9155B] hover:bg-[#C90044] text-white flex justify-center items-center gap-1 pl-2"
+        font-medium transition-all duration-300  rounded-full bg-[#E9155B] hover:bg-[#C90044] text-white flex justify-center items-center gap-1 pl-4"
             >
               Delete{" "}
               <button className="bg-white m-0.5  p-1 text-[#E9155B]   rounded-full">

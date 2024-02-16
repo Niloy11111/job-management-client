@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div className="">
       <Helmet>
-        <title>Home Page -LeepPro </title>
+        <title>Home | LeepPro </title>
       </Helmet>
       <Banner></Banner>
 

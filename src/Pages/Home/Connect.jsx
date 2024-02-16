@@ -12,11 +12,11 @@ const Connect = () => {
 
       <div className="flex lg:flex-row flex-col-reverse justify-center gap-10 lg:gap-20  items-center">
         <div className="flex-1">
-          <h2 className="text-2xl uppercase    font-Inter font-extrabold">
+          <h2 className="text-xl text-center lg:text-left lg:text-2xl uppercase    font-Inter font-extrabold">
             Our mission is to connect you with
             <span className=" text-[#EB3656]"> your dream company</span>
           </h2>
-          <p className=" font-Inter my-6 ">
+          <p className=" font-Inter my-4 lg:my-6 ">
             At LeapPro, our goal is simple: to connect you with the right
             organization. Whether you're a seasoned professional or just
             starting out, we're here to make your job search easier. Our

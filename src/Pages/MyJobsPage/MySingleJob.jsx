@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { BiBriefcase } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -19,17 +18,7 @@ const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
     about,
   } = myjob;
 
-  const [resume, setResume] = useState([]);
-
-  const url = `https://job-management-server-eight.vercel.app/myEmployees?jobTitle=${jobTitle}`;
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setResume(data));
-  }, []);
-
-  const handleDeleteProduct = (_id) => {
+  const handleDeleteJob = (_id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to restore this!",
@@ -47,11 +36,7 @@ const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
           .then((data) => {
             console.log(data);
             if (data.deletedCount > 0) {
-              Swal.fire(
-                "Deleted!",
-                "Your Product has been deleted.",
-                "success"
-              );
+              Swal.fire("Deleted!", "Job has been deleted.", "success");
               const remaining = myJobs.filter((cart) => cart._id !== _id);
               setMyJobs(remaining);
             }
@@ -117,7 +102,7 @@ const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
 
           <Link>
             <button
-              onClick={() => handleDeleteProduct(_id)}
+              onClick={() => handleDeleteJob(_id)}
               className="text-sm font-Inter  font-medium transition-all duration-200 pl-5  rounded bg-[#E9155B] text-white flex justify-center items-center"
             >
               DELETE{" "}
@@ -130,16 +115,6 @@ const MySingleJob = ({ myjob, myJobs, setMyJobs }) => {
             </button>
           </Link>
         </div>
-
-        {/* <h2 className="my-4 font-Inter font-semibold">
-          {resume.length} Resume For {jobTitle}
-        </h2>
-
-        <div>
-          {resume.map((item) => (
-            <SingleResume item={item} key={item._id}></SingleResume>
-          ))}
-        </div> */}
       </div>
     </div>
   );

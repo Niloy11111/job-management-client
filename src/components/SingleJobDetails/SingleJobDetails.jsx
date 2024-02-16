@@ -1,20 +1,23 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useContext, useState } from "react";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 import Lottie from "lottie-react";
 import { Helmet } from "react-helmet";
 import toast from "react-hot-toast";
 import { FaArrowRightLong } from "react-icons/fa6";
-import banner from "../assets/BannerAnimation/KBOjc2uJx9.json";
-import useApplicants from "../hooks/UseApplicants";
+import Swal from "sweetalert2";
+import banner from "../../assets/BannerAnimation/KBOjc2uJx9.json";
+import useApplicants from "../../hooks/UseApplicants";
 
 const SingleJobDetails = () => {
   const { user } = useContext(AuthContext);
+
   const [applicantsInfo, loading, refetch] = useApplicants();
 
   const singleJobDetails = useLoaderData();
+  const navigate = useNavigate();
 
   const {
     _id,
@@ -33,74 +36,74 @@ const SingleJobDetails = () => {
     hiringManager,
   } = singleJobDetails;
 
-  console.log("single from details", singleJobDetails);
-
   const creatorEmail = email;
 
   const [resume, setResume] = useState([]);
-
-  const url = `https://job-management-server-eight.vercel.app/myEmployees`;
-
-  useEffect(() => {
-    axios.get(url).then((data) => setResume(data.data));
-  }, []);
 
   const isApplicant = applicantsInfo.some(
     (item) => item?.jobTitle === jobTitle && item?.email === user?.email
   );
 
+  console.log("isApplicant", applicantsInfo);
+
   const hanldeApplyJob = (e) => {
     e.preventDefault();
-    if (creatorEmail === user?.email) {
-      toast.error("Sorry you cannot apply on your own created job");
-      return;
-    }
-    if (isApplicant) {
-      toast.error("Sorry you already applied on this job");
+    if (user) {
+      if (creatorEmail === user?.email) {
+        toast.error("Sorry you cannot apply on your own created job");
+
+        return;
+      }
+      if (isApplicant) {
+        toast.error("Sorry you already applied on this job");
+      } else {
+        const form = e.target;
+        const applicantName = user?.displayName;
+        const email = form.email.value;
+        const resume = form.resume.value;
+        const photo = user.photoURL;
+        const jobID = _id;
+        const jobCreatorEmail = creatorEmail;
+        const candidatesImage = user?.photoURL;
+        const hiringManagerImage = hiringManager;
+        const hiringManagerName = userName;
+        const appliedJobInfo = {
+          applicantName,
+          email,
+          resume,
+          photo,
+          jobCategory,
+          logo,
+          jobTitle,
+          jobID,
+          jobCreatorEmail,
+          candidatesImage,
+          hiringManagerImage,
+          hiringManagerName,
+        };
+
+        axios
+          .post(
+            "https://job-management-server-eight.vercel.app/appliedJob",
+            appliedJobInfo
+          )
+          .then((data) => {
+            toast.success("WoW you have applied on this job successfully !");
+            refetch();
+
+            console.log(data.data);
+          });
+      }
     } else {
-      const form = e.target;
-      const applicantName = user?.displayName;
-      const email = form.email.value;
-      const resume = form.resume.value;
-      const photo = user.photoURL;
-      const jobID = _id;
-      const jobCreatorEmail = creatorEmail;
-      const candidatesImage = user?.photoURL;
-      const hiringManagerImage = hiringManager;
-      const hiringManagerName = userName;
-      const appliedJobInfo = {
-        applicantName,
-        email,
-        resume,
-        photo,
-        jobCategory,
-        logo,
-        jobTitle,
-        jobID,
-        jobCreatorEmail,
-        candidatesImage,
-        hiringManagerImage,
-        hiringManagerName,
-      };
-
-      axios
-        .post(
-          "https://job-management-server-eight.vercel.app/appliedJob",
-          appliedJobInfo
-        )
-        .then((data) => {
-          toast.success("WoW you have applied on this job successfully !");
-          refetch();
-
-          console.log(data.data);
-        });
+      new Swal("Please login to apply job!!", "", "error");
+      navigate("/login");
     }
   };
 
   return (
     <div className=" my-32">
       <Helmet>
-        <title>Job Details -LeepPro </title>
+        <title>Job Details | LeepPro </title>
       </Helmet>
       <div className="flex h-[45vh] gap-20  items-center ">
         <div className="flex-1">

@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { FaBars } from "react-icons/fa";
 import { HiOutlineLogout } from "react-icons/hi";
-import { NavLink } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const navlinksBeforeLogin = (
     <>
@@ -173,8 +174,14 @@ const NavBar = () => {
       </li> */}
     </>
   );
+
+  const handleLogOut = () => {
+    logOut();
+    navigate("/");
+  };
+
   return (
-    <div className="py-4 flex  justify-between border-b-[2px] border-[#FF5CA4] pb-5 mb-5">
+    <div className=" py-4 flex lg:flex-row flex-row-reverse  justify-between border-b-[2px] border-[#FF5CA4] pb-5 mb-5">
       <div className="flex  items-center gap-2">
         <div className="dropdown">
           <div tabIndex={0} role="button" className=" lg:hidden">
@@ -182,7 +189,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content z-[1] shadow  rounded-box bg-[#2C2C2C] w-52 text-[#E9155B] absolute -right-[140px] top-0"
+            className="menu menu-sm dropdown-content z-[1] shadow  rounded-box bg-[#FF5CA4] w-52 text-[#E9155B] absolute -right-[30px] -top-5"
           >
             {user ? navLinks : navlinksBeforeLogin}
           </ul>
@@ -193,19 +200,22 @@ const NavBar = () => {
             className="w-[50px] lg:w-[50px]"
             src="https://i.ibb.co/cwFBJD2/Untitled-design.png"
           ></img>
-          <h2 className="text-xl font-extrabold font-Inter"> LeapPro</h2>
+          <h2 className="text-xl hidden lg:block font-extrabold font-Inter">
+            {" "}
+            LeapPro
+          </h2>
         </div>
       </div>
 
-      <div className="flex items-center bg-[#ffe3e8]   p-3 rounded">
-        <ul className="hidden lg:block lg:flex gap-3 ">
+      <div className="flex  items-center hidden lg:block bg-[#ffe3e8]   p-3 rounded">
+        <ul className=" lg:flex gap-3 ">
           {user ? navLinks : navlinksBeforeLogin}
         </ul>
       </div>
 
-      <div>
+      <div className="">
         {user ? (
-          <div className="dropdown lg:block dropdown-end">
+          <div className="dropdown  lg:block dropdown-end">
             <div className="flex gap-3 items-center">
               <label tabIndex={0} className="btn btn-ghost  btn-circle avatar">
                 <div className="w-[40px] rounded-full text-white">
@@ -214,7 +224,7 @@ const NavBar = () => {
               </label>
               <div>
                 <button
-                  onClick={logOut}
+                  onClick={handleLogOut}
                   className="text-sm flex items-center gap-1 font-Inter font-semibold  text-[#E9155B]"
                 >
                   Logout <HiOutlineLogout className="text-xl"></HiOutlineLogout>

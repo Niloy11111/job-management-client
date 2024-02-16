@@ -9,8 +9,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import HomePage from "../Pages/Home/HomePage";
 import Login from "../Pages/Login/Login";
 import MyJobs from "../Pages/MyJobsPage/MyJobs";
-import SingleJobDetails from "../SingleJobDetails/SingleJobDetails";
-import UpdateJob from "../UpdateJob/UpdateJob";
+import UpdateJob from "../Pages/UpdateJob/UpdateJob";
+import SingleJobDetails from "../components/SingleJobDetails/SingleJobDetails";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([

@@ -8,8 +8,6 @@ import "./TabCss/Tab.css";
 const JobByCategory = () => {
   const [allJobs, loading, refetch] = UseJobs();
 
-  console.log("ksdjfdksf", allJobs);
-
   const onSiteJobs = allJobs.filter((item) => item.jobCategory === "On Site");
   const remoteJobs = allJobs.filter((item) => item.jobCategory === "Remote");
   const partTimeJobs = allJobs.filter(
@@ -21,14 +19,14 @@ const JobByCategory = () => {
 
   return (
     <div className="mb-20 mt-10">
-      <h2 className="  text-3xl lg:text-4xl font-Inter font-extrabold uppercase mb-12 text-center">
+      <h2 className="  text-3xl lg:text-4xl font-Inter font-extrabold uppercase mb-6 lg:mb-12 text-center">
         Browse <span className="text-[#E9155B]">popular </span> Job
       </h2>
 
       <Tabs className="">
-        <TabList className="flex -mb-6  gap-3  ">
+        <TabList className="flex justify-center lg:justify-normal -mb-6 gap-1 lg:gap-3  ">
           <Tab
-            className={`cursor-pointer  py-2 px-4 rounded-full lg:py-2 ${
+            className={`cursor-pointer text-sm lg:text-base   lg:px-3 px-1 py-1  lg:rounded-full rounded lg:py-2 ${
               activeTab === 0 ? "active" : "inactive"
             }`}
             onClick={() => setActiveTab(0)}
@@ -37,24 +35,25 @@ const JobByCategory = () => {
           </Tab>
 
           <Tab
-            className={`cursor-pointer rounded-full   py-2 px-3 lg:py-2 ${
+            className={`cursor-pointer text-sm lg:text-base lg:rounded-full rounded    lg:px-3 px-1 py-1 lg:py-2 ${
               activeTab === 1 ? "active" : "inactive"
             }`}
             onClick={() => setActiveTab(1)}
           >
-            On Site Job
+            On Site
           </Tab>
 
           <Tab
-            className={`cursor-pointer   py-2 px-3 rounded-full lg:py-2 ${
+            className={`cursor-pointer text-sm lg:text-base  lg:rounded-full rounded  
+            lg:px-3 px-1 py-1  lg:py-2 ${
               activeTab === 2 ? "active" : "inactive"
             }`}
             onClick={() => setActiveTab(2)}
           >
-            Remote Job
+            Remote
           </Tab>
           <Tab
-            className={`cursor-pointer  py-2 px-3 rounded-full lg:py-2 ${
+            className={`cursor-pointer text-sm lg:px-3 px-1 py-1 lg:text-base lg:rounded-full rounded lg:py-2 ${
               activeTab === 3 ? "active" : "inactive"
             }`}
             onClick={() => setActiveTab(3)}
@@ -62,7 +61,9 @@ const JobByCategory = () => {
             Hybrid
           </Tab>
           <Tab
-            className={`cursor-pointer  py-2 px-3 rounded-full lg:py-2 ${
+            className={`cursor-pointer text-sm lg:text-base  lg:rounded-full rounded  
+          
+            lg:px-3 px-1 py-1  lg:py-2 ${
               activeTab === 4 ? "active" : "inactive"
             }`}
             onClick={() => setActiveTab(4)}

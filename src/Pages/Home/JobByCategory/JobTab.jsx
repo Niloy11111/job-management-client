@@ -14,7 +14,7 @@ const JobTab = ({ jobs }) => {
 
   return (
     <>
-      <div className="mt-16 grid gap-7 grid-cols-3">
+      <div className="mt-16 grid gap-7 grid-cols-1 lg:grid-cols-3">
         {jobs?.slice(0, jobsLength).map((SingleJob) => (
           <JobCard key={SingleJob._id} SingleJob={SingleJob}></JobCard>
         ))}
@@ -23,7 +23,7 @@ const JobTab = ({ jobs }) => {
         {jobsLength < jobs?.length ? (
           <button
             onClick={handleLoadMore}
-            className="text-sm font-Inter  font-medium transition-all duration-200 pl-4  rounded-full bg-[#E9155B] text-white "
+            className="text-sm font-Inter  font-medium transition-all duration-300 pl-4  rounded-full bg-[#E9155B] text-white "
           >
             <button className="bg-white  m-0.5 text-[#E9155B] p-3 ml-4 rounded-full">
               <FaArrowDown></FaArrowDown>{" "}
@@ -32,7 +32,7 @@ const JobTab = ({ jobs }) => {
         ) : (
           <button
             onClick={handleLessJobs}
-            className="text-sm font-Inter  font-medium transition-all duration-200 pr-7  rounded-full bg-[#E9155B] text-white "
+            className="text-sm font-Inter  font-medium transition-all duration-300 pr-7  rounded-full bg-[#E9155B] text-white "
           >
             <button className="bg-white  m-0.5 text-[#E9155B] p-3  rounded-full">
               <FaArrowUp></FaArrowUp>{" "}

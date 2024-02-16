@@ -15,8 +15,6 @@ const SingleAppliedJob = ({ item }) => {
     hiringManagerImage,
   } = item;
 
-  console.log("from applied job", item);
-
   return (
     <div className=" bg-[#F7F7F7] rounded p-4">
       <div className=" justify-between">

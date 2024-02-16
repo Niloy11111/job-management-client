@@ -63,17 +63,17 @@ const AddAJob = () => {
   };
 
   return (
-    <div className="mb-20 font-Inter">
+    <div className="mt-32 lg:mt-0 font-Inter">
       <Helmet>
-        <title>Add Job -LeepPro </title>
+        <title>Add Job | LeepPro </title>
       </Helmet>
 
-      <h2 className="text-center my-20 text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
+      <h2 className="text-center hidden lg:block my-14 text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
         add <span className="text-[#E9155B] "> job here</span>
       </h2>
 
-      <div className="flex items-center  gap-20 justify-between">
-        <div className="bg-[#E9155B] rounded-3xl shadow-xl h-[30vh] w-[35%] mx-auto  threeDContainer">
+      <div className="flex lg:flex-row flex-col  items-center gap-10 lg:gap-20 justify-between ">
+        <div className="bg-[#E9155B] rounded-3xl shadow-xl h-[30vh] lg:w-[35%] mx-auto  threeDContainer">
           <div className=" -mt-20 rounded-3xl bg-[#ffe3e8] threeDimage mx-10  transition-all duration-500 shadow-2xl">
             <img
               className="w-[320px] h-[300px]  mx-auto"
@@ -81,18 +81,19 @@ const AddAJob = () => {
             ></img>
           </div>
           <h2 className="title text-center my-20 text-2xl  font-Inter font-extrabold uppercase -mt-10 text-white hidden">
-            Hire Talent
+            <span className="hidden lg:block"> Hire Talent</span>
+            <span className="block lg:hidden"> Add Job</span>
           </h2>
         </div>
 
-        <div className="w-2/4 relative">
+        <div className="w-full lg:w-2/4 relative">
           <h2 className=" my-5 text-xl lg:text-2xl font-Inter font-extrabold uppercase">
             Required <span className="text-[#E9155B] "> information</span>
           </h2>
           <form className="" onSubmit={handleAddJob}>
             <div className="">
               <input
-                className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
+                className=" pl-5   rounded-full py-2 lg:py-3 outline-none w-full block border  mb-4"
                 type="text"
                 placeholder="Job Title"
                 name="jobTitle"
@@ -101,7 +102,7 @@ const AddAJob = () => {
 
               <div className="flex gap-4">
                 <input
-                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-6"
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-6"
                   type="text"
                   placeholder="Photo URL"
                   src=""
@@ -110,7 +111,7 @@ const AddAJob = () => {
                 />
 
                 <input
-                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-6"
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-6"
                   type="text"
                   placeholder="Logo URL"
                   src=""
@@ -119,9 +120,9 @@ const AddAJob = () => {
                 />
               </div>
 
-              <div className="flex gap-4 relative">
+              <div className="flex lg:hidden gap-4  ">
                 <input
-                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border  mb-4"
                   type="text"
                   defaultValue={user?.displayName}
                   placeholder="User Name"
@@ -129,7 +130,25 @@ const AddAJob = () => {
                   id=""
                 />
                 <input
-                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border  mb-4"
+                  type="text"
+                  placeholder="Salary"
+                  name="salaryRange"
+                  id=""
+                />
+              </div>
+
+              <div className="  lg:flex  hidden  gap-4 relative">
+                <input
+                  className=" pl-5   rounded-full py-3 outline-none w-full  border  mb-4"
+                  type="text"
+                  defaultValue={user?.displayName}
+                  placeholder="User Name"
+                  name="userName"
+                  id=""
+                />
+                <input
+                  className=" pl-5   rounded-full py-3 outline-none w-full  border  mb-4"
                   type="text"
                   placeholder="Salary"
                   name="salaryRange"
@@ -137,7 +156,7 @@ const AddAJob = () => {
                 />
 
                 <select
-                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-4"
+                  className=" pl-5   rounded-full py-3 outline-none w-full  border pb-3 mb-4"
                   type="text"
                   placeholder="Product Type"
                   name="jobCategory"
@@ -149,7 +168,46 @@ const AddAJob = () => {
                   <option value="Hybrid">Hybrid</option>
                 </select>
               </div>
-              <div className="flex gap-3 ">
+
+              <div className="flex gap-4 lg:hidden">
+                <input
+                  type="date"
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full  border  mb-4"
+                  name="jobPostingDate"
+                  id="birthday"
+                />
+
+                <DatePicker
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full  border  mb-4"
+                  name="applicationDeadline"
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                />
+              </div>
+
+              <div className="lg:hidden flex gap-4">
+                <select
+                  className="pl-2    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-6"
+                  type="text"
+                  placeholder="Product Type"
+                  name="jobCategory"
+                  id=""
+                >
+                  <option value="On Site">On Site</option>
+                  <option value="Remote">Remote</option>
+                  <option value="Part-Time">Part-Time</option>
+                  <option value="Hybrid">Hybrid</option>
+                </select>
+
+                <input
+                  type="number"
+                  defaultValue={0}
+                  className="pl-2    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-6"
+                  name="applicants"
+                />
+              </div>
+
+              <div className="lg:flex hidden gap-3 ">
                 <input
                   type="date"
                   className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-6"
@@ -200,7 +258,7 @@ const AddAJob = () => {
                 </p>{" "}
               </button>
 
-              <h2 className="bottom-[340px] right-3 font-Inter absolute">
+              <h2 className="bottom-[347px] lg:text-base text-sm  right-2 font-Inter absolute">
                 Applicants
               </h2>
             </div>

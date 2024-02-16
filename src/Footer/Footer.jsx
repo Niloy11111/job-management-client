@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="flex my-20 justify-around text-[#000000] font-Inter">
+    <div className=" flex gap-10 lg:gap-0 lg:flex-row flex-col-reverse my-14 lg:my-20 justify-around text-[#000000] font-Inter">
       <div>
         <div className="flex items-center gap-2 mb-10">
           <img
