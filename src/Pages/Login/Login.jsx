@@ -80,11 +80,11 @@ const Login = () => {
   if (toogle) {
     return (
       <>
-        <div className="my-20  flex justify-center gap-20">
+        <div className="mt-20  flex lg:flex-row flex-col-reverse justify-center gap-14 lg:gap-20">
           <div className="flex-1">
-            <div className="w-5/6 mx-auto">
+            <div className="lg:w-5/6 mx-auto">
               <form onSubmit={handleLogin} className=" rounded  ">
-                <h2 className="mb-2 text-[#E9155B] uppercase   font-Inter text-3xl font-extrabold text-center">
+                <h2 className="mb-2 text-[#E9155B] uppercase   font-Inter text-3xl  font-extrabold text-center">
                   Create account
                 </h2>
                 <div
@@ -113,7 +113,7 @@ const Login = () => {
                     required
                   />
 
-                  <div className="flex gap-3">
+                  <div className="flex lg:flex-row flex-col lg:gap-3">
                     <div>
                       <input
                         className="border-[#C5C5C5] bg-[#FFF] rounded-lg py-3 outline-none w-full mx-auto border b block pl-2 pb-3 mb-5"
@@ -174,7 +174,7 @@ const Login = () => {
           </div>
 
           <div className="flex-1  transition-all duration-500  flex justify-centkeer items-center">
-            <div className="w-5/6 shadow-2xl  rounded-3xl">
+            <div className="w-5/6 mx-auto shadow-2xl  rounded-3xl">
               <img
                 className=" "
                 src="https://i.ibb.co/vq8ZGc7/lock-isometric-icon-isolated-white-background-3d-isometric-red-color-padlock-sign-safety-concept-mob.png"
@@ -187,7 +187,7 @@ const Login = () => {
   } else {
     return (
       <>
-        <div className="my-20  flex justify-center gap-10">
+        <div className="mt-20  flex lg:flex-row flex-col  justify-center gap-16 lg:gap-20">
           <div className="flex-1  transition-all duration-500  flex justify-center items-center">
             <div className=" shadow-2xl  rounded-3xl">
               <img
@@ -198,7 +198,7 @@ const Login = () => {
           </div>
 
           <div className="flex-1">
-            <div className="w-4/6 mx-auto">
+            <div className="lg:w-4/6 mx-auto">
               <form onSubmit={handleSignInUser} className="">
                 <h2 className="mb-2 text-[#E9155B] uppercase   font-Inter text-3xl font-extrabold text-center">
                   Log In

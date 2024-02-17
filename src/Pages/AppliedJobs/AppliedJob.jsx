@@ -42,19 +42,19 @@ const AppliedJob = () => {
 
       <div className=" flex gap-4  flex-col-reverse lg:flex-row justify-center ">
         <div className="flex  items-center">
-          <div className="w-3/4">
+          <div className="lg:w-3/4">
             <h2 className="text-3xl uppercase lg:text-3xl text-center  font-Inter font-extrabold">
               You have applied{" "}
               <span className=" text-[#EB3656] ">
                 to {appliedJobs?.length} Jobs
               </span>
             </h2>
-            <p className=" text-center font-Inter  ">
+            <p className="lg:text-base text-sm mt-1  text-center font-Inter  ">
               Easily monitor your applied jobs, keeping track of all your
               applications in one convenient location. Stay organized and
               informed throughout your job search journey.
             </p>
-            <div className="flex justify-center mt-3">
+            <div className="flex justify-center mt-4">
               <Link
                 to={`/allJobs`}
                 className="flex text-sm font-Inter   font-medium transition-all duration-200   rounded-full bg-[#E9155B] text-white   justify-center items-center "
@@ -72,12 +72,12 @@ const AppliedJob = () => {
 
         <div className="">
           {" "}
-          <Lottie className="w-[550px]" animationData={banner} loop={true} />
+          <Lottie className="lg:w-[550px]" animationData={banner} loop={true} />
         </div>
       </div>
 
-      <div className="flex gap-10">
-        <div className="w-1/4">
+      <div className="flex lg:flex-row flex-col gap-10 mt-14 lg:mt-0">
+        <div className="lg:w-1/4">
           <h2 className="text-xl text-center mb-2 font-Inter font-extrabold uppercase">
             Select by <span className="text-[#E9155B] "> category</span>
           </h2>
@@ -93,13 +93,13 @@ const AppliedJob = () => {
 
         <div className="w-full">
           {categoryValue ? (
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {filteredJobs.map((item) => (
                 <SingleAppliedJob key={item._id} item={item}></SingleAppliedJob>
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {appliedJobs.map((item) => (
                 <SingleAppliedJob key={item._id} item={item}></SingleAppliedJob>
               ))}

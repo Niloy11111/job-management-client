@@ -101,11 +101,11 @@ const SingleJobDetails = () => {
   };
 
   return (
-    <div className=" my-32">
+    <div className="my-16 lg:my-32">
       <Helmet>
         <title>Job Details | LeepPro </title>
       </Helmet>
-      <div className="flex h-[45vh] gap-20  items-center ">
+      <div className="flex lg:flex-row flex-col-reverse  lg:h-[45vh] lg:gap-20  items-center ">
         <div className="flex-1">
           <div className=" bg-gray-50 mb-5 border flex justify-center items-center w-[170px] h-[80px] mx-auto rounded">
             <img className="w-[130px]" src={logo}></img>
@@ -113,7 +113,7 @@ const SingleJobDetails = () => {
           <h2 className="text-center text-[#E9155B]  text-3xl lg:text-4xl font-Inter font-extrabold uppercase">
             {jobTitle}
           </h2>
-          <p className="mt-1 text-center">{about}</p>
+          <p className="mt-1 text-sm lg:text-base text-center">{about}</p>
           <div className="flex justify-center items-center  mt-3">
             <div
               onClick={() => document.getElementById("my_modal_1").showModal()}
@@ -129,51 +129,51 @@ const SingleJobDetails = () => {
               </Link>
             </div>
 
-            <dialog id="my_modal_1" className="modal">
+            <dialog id="my_modal_1" className="modal w-4/5 mx-auto">
               <div className="modal-box rounded">
                 <img
-                  className="mx-auto mb-7"
-                  src="https://www.monster.com/assets/profile/_next/static/media/cloud.44af2f8f.svg"
+                  className="w-[120px] mx-auto "
+                  src="https://i.ibb.co/B2XzVmY/identity-card-869423-930-removebg-preview.png"
                 ></img>
                 <h2 className="text-lg font-bold font-Inter text-center mt-2">
                   Add Your Resume
                 </h2>
-                <p className="mt-4 mb-3 text-center">
+                <p className="text-sm  mb-5 text-center">
                   Upload your resume to ensure employers can easily find you
                 </p>
 
-                <form action="" onSubmit={hanldeApplyJob}>
+                <form className="" action="" onSubmit={hanldeApplyJob}>
                   <input
                     type="text"
-                    className="py-3 block border mb-3 w-full outline-none rounded"
+                    className="py-3 pl-2 text-sm block border mb-3 w-full outline-none rounded"
                     defaultValue={user?.displayName}
                     name="userName"
                     id=""
                   />
                   <input
                     type="email"
-                    className="py-3 block border mb-3 w-full outline-none rounded"
+                    className="py-3 pl-2 text-sm block border mb-3 w-full outline-none rounded"
                     defaultValue={user?.email}
                     name="email"
                     id=""
                   />
                   <input
                     type="text"
-                    className=" py-3 block border mb-3 w-full outline-none rounded"
+                    className=" py-3 pl-2 text-sm block border mb-3 w-full outline-none rounded"
                     required
-                    placeholder="Upload Your Resume"
+                    placeholder="Resume Drive Link"
                     name="resume"
                     id=""
                   />
-                  <button className="py-3 w-full border-2 gap-3 border-[#D9DBE9] hover:bg-[#D9DBE9] text-[#6E46AE] rounded font-semibold text-sm">
+                  <button className="py-3 px-2 w-full border-[#FF5CA4] bg-[#E9155B] text-white rounded font-semibold text-sm hover:bg-[#C90044]">
                     SUBMIT APPLICATION
                   </button>
                 </form>
 
                 <div className="modal-action">
                   <form method="dialog">
-                    <button className="border-2  px-6 py-2 text-sm bg-[#6e46ae] font-semibold rounded text-[#FFF]">
-                      GO BACK
+                    <button className="hover:bg-[#E9155B] hover:text-white  text-sm font-Inter  font-medium transition-all duration-300 px-5 py-2  rounded-full border border-[#E9155B] text-[#E9155B] ">
+                      GO BACK{" "}
                     </button>
                   </form>
                 </div>
@@ -182,12 +182,12 @@ const SingleJobDetails = () => {
           </div>
         </div>
 
-        <div className="flex-1">
-          <Lottie className=" " animationData={banner} loop={true} />
+        <div className="flex-1 ">
+          <Lottie className="" animationData={banner} loop={true} />
         </div>
       </div>
 
-      <div className="flex gap-20 mt-32  items-center justify-center">
+      <div className="flex lg:flex-row flex-col gap-20 mt-16 lg:mt-32  items-center justify-center">
         <div className="flex-1">
           <div className="   rounded-3xl ">
             <img

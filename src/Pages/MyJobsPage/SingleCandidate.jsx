@@ -31,7 +31,7 @@ const SingleCandidate = ({ item, handleDelete }) => {
         {" "}
         {userName}
       </p>
-      <h2 className="font-Inter text-center font-medium text-sm ">
+      <h2 className="h-[40px] lg:h-[30px] font-Inter text-center font-medium text-sm ">
         {jobTitle}
       </h2>
       <div className="flex  lg:flex-row flex-col gap-2 lg:gap-5">

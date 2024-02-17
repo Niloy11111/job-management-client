@@ -189,7 +189,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content z-[1] shadow  rounded-box bg-[#FF5CA4] w-52 text-[#E9155B] absolute -right-[30px] -top-5"
+            className="menu menu-sm dropdown-content z-[1] shadow  rounded-box bg-[#F7F7F7] w-52 text-[#E9155B] absolute -left-[60px] -top-5 "
           >
             {user ? navLinks : navlinksBeforeLogin}
           </ul>
@@ -233,9 +233,9 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box bg-[#2C2C2C]  "
+              className="menu menu-sm dropdown-content mt-1 z-[1] p-2 shadow rounded-box bg-[#F7F7F7]  "
             >
-              <li className=" hover:bg-[#161515] py-1 px-1 rounded-xl text-white font-Inter text-center">
+              <li className="  py-1 px-1 rounded-xl  font-Inter text-center">
                 {user?.displayName}
               </li>
             </ul>

@@ -47,7 +47,7 @@ const AddAJob = () => {
       about,
     };
 
-    console.log(jobInfo);
+    console.log("real", jobInfo);
 
     axios
       .post("https://job-management-server-eight.vercel.app/addJob", jobInfo)
@@ -93,36 +93,39 @@ const AddAJob = () => {
           <form className="" onSubmit={handleAddJob}>
             <div className="">
               <input
-                className=" pl-5   rounded-full py-2 lg:py-3 outline-none w-full block border  mb-4"
+                className=" pl-5   rounded-full py-2 lg:py-3 outline-none w-full block border mb-3 lg:mb-4"
                 type="text"
                 placeholder="Job Title"
                 name="jobTitle"
+                required
                 id=""
               />
 
-              <div className="flex gap-4">
+              <div className="flex lg:flex-row flex-col lg:gap-4">
                 <input
-                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-6"
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-3 lg:mb-4"
                   type="text"
                   placeholder="Photo URL"
                   src=""
                   name="PictureURL"
+                  required
                   alt=""
                 />
 
                 <input
-                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-6"
+                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-3 lg:mb-4"
                   type="text"
                   placeholder="Logo URL"
                   src=""
                   name="logoURL"
+                  required
                   alt=""
                 />
               </div>
 
-              <div className="flex lg:hidden gap-4  ">
+              <div className=" flex lg:flex-row flex-col    lg:gap-4 relative">
                 <input
-                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border  mb-4"
+                  className=" pl-5   rounded-full  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
                   type="text"
                   defaultValue={user?.displayName}
                   placeholder="User Name"
@@ -130,35 +133,19 @@ const AddAJob = () => {
                   id=""
                 />
                 <input
-                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border  mb-4"
+                  className=" pl-5   rounded-full  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
                   type="text"
                   placeholder="Salary"
-                  name="salaryRange"
-                  id=""
-                />
-              </div>
-
-              <div className="  lg:flex  hidden  gap-4 relative">
-                <input
-                  className=" pl-5   rounded-full py-3 outline-none w-full  border  mb-4"
-                  type="text"
-                  defaultValue={user?.displayName}
-                  placeholder="User Name"
-                  name="userName"
-                  id=""
-                />
-                <input
-                  className=" pl-5   rounded-full py-3 outline-none w-full  border  mb-4"
-                  type="text"
-                  placeholder="Salary"
+                  required
                   name="salaryRange"
                   id=""
                 />
 
                 <select
-                  className=" pl-5   rounded-full py-3 outline-none w-full  border pb-3 mb-4"
+                  className=" pl-5   rounded-full  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
                   type="text"
                   placeholder="Product Type"
+                  required
                   name="jobCategory"
                   id=""
                 >
@@ -169,81 +156,61 @@ const AddAJob = () => {
                 </select>
               </div>
 
-              <div className="flex gap-4 lg:hidden">
-                <input
-                  type="date"
-                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full  border  mb-4"
-                  name="jobPostingDate"
-                  id="birthday"
-                />
+              <div className="lg:flex lg:flex-row flex-col  lg:gap-3 ">
+                <div className=" w-full">
+                  <h2 className="text-sm ml-4 mb-1 font-bold">Post Date</h2>
+                  <input
+                    type="date"
+                    className="pl-5 lg:pl-1    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-3 lg:mb-4"
+                    name="jobPostingDate"
+                    id="birthday"
+                    required
+                  />
+                </div>
 
-                <DatePicker
-                  className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full  border  mb-4"
-                  name="applicationDeadline"
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
-                />
-              </div>
+                <div className="w-full">
+                  <h2 className="text-sm ml-4 mb-1 font-bold">
+                    Application Deadline
+                  </h2>
+                  <DatePicker
+                    className=" pl-5   rounded-full py-2 lg:py-3 outline-none  block border  w-[320px] lg:w-[210px] mb-3 lg:mb-4"
+                    name="applicationDeadline"
+                    selected={startDate}
+                    required
+                    onChange={(date) => setStartDate(date)}
+                  />
+                </div>
 
-              <div className="lg:hidden flex gap-4">
-                <select
-                  className="pl-2    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-6"
-                  type="text"
-                  placeholder="Product Type"
-                  name="jobCategory"
-                  id=""
-                >
-                  <option value="On Site">On Site</option>
-                  <option value="Remote">Remote</option>
-                  <option value="Part-Time">Part-Time</option>
-                  <option value="Hybrid">Hybrid</option>
-                </select>
-
-                <input
-                  type="number"
-                  defaultValue={0}
-                  className="pl-2    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-6"
-                  name="applicants"
-                />
-              </div>
-
-              <div className="lg:flex hidden gap-3 ">
-                <input
-                  type="date"
-                  className=" pl-5   rounded-full py-3 outline-none w-full block border pb-3 mb-6"
-                  name="jobPostingDate"
-                  id="birthday"
-                />
-
-                <DatePicker
-                  className=" pl-5   rounded-full py-3 outline-none  block border pb-3 mb-6"
-                  name="applicationDeadline"
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
-                />
-
-                <input
-                  type="number"
-                  defaultValue={0}
-                  className="pl-2    rounded-full py-3 outline-none w-full block border pb-3 mb-6"
-                  name="applicants"
-                />
+                <div className="w-full">
+                  <h2 className="text-sm ml-4 mb-1 font-bold">
+                    Applicants Number
+                  </h2>
+                  <input
+                    type="number"
+                    defaultValue={0}
+                    required
+                    className="pl-2    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-3 lg:mb-4"
+                    name="applicants"
+                  />
+                </div>
               </div>
 
               <textarea
-                className=" pl-5   rounded-3xl py-3 outline-none w-full block border pb-3 mb-4"
+                className=" pl-5   rounded-3xl py-3 outline-none w-full block border  mb-3 lg:mb-4"
                 type="text"
                 placeholder="About Company"
                 name="about"
+                required
                 id=""
                 cols="50"
                 rows="2"
               ></textarea>
               <textarea
-                className=" pl-5 mb-8  rounded-3xl py-3 outline-none w-full block border pb-3 "
+                className=" pl-5 mb-8  rounded-3xl py-3 outline-none w-full block border  "
                 type="text"
                 placeholder="Job Description"
                 name="description"
+                required
                 id=""
                 cols="50"
                 rows="5"
@@ -257,10 +224,6 @@ const AddAJob = () => {
                   <BiSolidAddToQueue className=" text-white"></BiSolidAddToQueue>
                 </p>{" "}
               </button>
-
-              <h2 className="bottom-[347px] lg:text-base text-sm  right-2 font-Inter absolute">
-                Applicants
-              </h2>
             </div>
           </form>
         </div>
