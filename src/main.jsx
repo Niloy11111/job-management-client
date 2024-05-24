@@ -11,7 +11,7 @@ import Favicon from "react-favicon";
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <div className="w-2/3 mx-auto font-Inter">
+  <div className="w-2/3 mx-auto font-Inter text-[#000000] ">
     <Favicon url="https://i.ibb.co/gJ3LrbJ/Untitled-design-removebg-preview.png" />
     <AuthProvider>
       <React.StrictMode>

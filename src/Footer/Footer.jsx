@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className=" flex gap-10 lg:gap-0 lg:flex-row flex-col-reverse my-14 lg:my-20 justify-around text-[#000000] font-Inter">
+    <div className=" flex gap-10 lg:gap-0 lg:flex-row flex-col-reverse py-14 lg:py-20 justify-around text-[#000000] font-Inter">
       <div>
         <div className="flex items-center gap-2 mb-10">
           <img
@@ -69,7 +69,7 @@ const Footer = () => {
         <h2 className="font-bold mb-3">GET INVOLVED</h2>
         <div>
           <input
-            className="outline-none py-2.5 pl-3 border-[#FF5CA4] w-full border rounded"
+            className="outline-none bg-white py-2.5 pl-3 border-[#FF5CA4] w-full border rounded"
             placeholder="Enter email adress"
             type="email"
             name=""

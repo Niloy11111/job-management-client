@@ -23,7 +23,7 @@ const Banner = () => {
               <input
                 name="category"
                 id="field-id"
-                className="pl-8 border-2 border-[#FF5CA4] rounded-full lg:w-2/4 w-3/5 py-2 outline-none "
+                className="pl-8 border-2 border-[#FF5CA4] rounded-full lg:w-2/4 w-3/5 py-2 outline-none bg-white"
                 type="text"
                 placeholder="Search jobs"
               />
@@ -36,9 +36,9 @@ const Banner = () => {
         </div>
 
         <div className="flex-1 ">
-          <div className="flex gap-3 lg:gap-6   ">
+          <div className="flex gap-2 lg:gap-6   ">
             <div
-              className="bg-[#E9155B] flex justify-center items-center  w-[120px] lg:w-[200px] lg:h-[200px] h-[120px]  mt-14 ml-[80px] lg:ml-[100px] rounded-tl-full
+              className="bg-[#E9155B] flex justify-center items-center  w-[90px] lg:w-[200px] lg:h-[200px] h-[90px]  mt-12 ml-[40px] lg:ml-[100px] rounded-tl-full
             "
             >
               <img
@@ -46,22 +46,22 @@ const Banner = () => {
                 src="https://i.ibb.co/8c5fcW7/promotion.png"
               ></img>
             </div>
-            <div className="bg-[#FFCAFF]  rounded-tr-full w-[180px] lg:w-[280px] h-[180px] lg:h-[250px] ">
+            <div className="bg-[#FFCAFF]  rounded-tr-full w-[140px] lg:w-[280px] h-[140px] lg:h-[250px] ">
               <img
-                className="w-[150px] lg:w-[250px] mt-20"
+                className="w-[130px]  lg:w-[250px] mt-10 lg:mt-20"
                 src="https://i.ibb.co/dg8GspM/wepik-export-20240211173005v-Re-J.png"
               ></img>
             </div>
           </div>
 
-          <div className="flex ml-[20px] lg:ml-5 gap-3 lg:gap-6  mt-3 lg:mt-6">
-            <div className="bg-[#9BDEAC]  w-[180px] lg:w-[280px] h-[180px] lg:h-[250px]  rounded-bl-full">
+          <div className="flex ml-[-8px] lg:ml-5 gap-2 lg:gap-6  mt-2 lg:mt-6">
+            <div className="bg-[#9BDEAC]  w-[140px] lg:w-[280px] h-[140px] lg:h-[250px]  rounded-bl-full">
               <img
                 className=""
                 src="https://i.ibb.co/F34MqNq/wepik-export-20240211184052dd-CU.png"
               ></img>
             </div>
-            <div className="bg-[#747F00]  rounded-br-full  w-[120px] lg:w-[200px] lg:h-[200px] h-[120px]">
+            <div className="bg-[#747F00]  rounded-br-full  w-[90px] lg:w-[200px] lg:h-[200px] h-[90px]">
               <img
                 className=""
                 src="https://i.ibb.co/1Mn71mn/bar-chart.png"

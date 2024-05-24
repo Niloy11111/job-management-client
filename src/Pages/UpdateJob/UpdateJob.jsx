@@ -110,7 +110,7 @@ const UpdateJob = () => {
             <form className="" onSubmit={handleUpdateJob}>
               <div className="">
                 <input
-                  className=" pl-5   rounded-full py-2 lg:py-3 outline-none w-full block border mb-3 lg:mb-4"
+                  className=" pl-5   rounded-full bg-white py-2 lg:py-3 outline-none w-full block border mb-3 lg:mb-4"
                   type="text"
                   placeholder="Job Title"
                   defaultValue={jobTitle}
@@ -120,7 +120,7 @@ const UpdateJob = () => {
 
                 <div className="flex lg:flex-row flex-col lg:gap-4">
                   <input
-                    className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-3 lg:mb-4"
+                    className=" pl-5   rounded-full bg-white py-2 lg:py-3  outline-none w-full block border mb-3 lg:mb-4"
                     type="text"
                     placeholder="Photo URL"
                     defaultValue={PictureURL}
@@ -130,7 +130,7 @@ const UpdateJob = () => {
                   />
 
                   <input
-                    className=" pl-5   rounded-full py-2 lg:py-3  outline-none w-full block border mb-3 lg:mb-4"
+                    className=" pl-5   rounded-full bg-white py-2 lg:py-3  outline-none w-full block border mb-3 lg:mb-4"
                     type="text"
                     placeholder="Logo URL"
                     defaultValue={logo}
@@ -142,7 +142,7 @@ const UpdateJob = () => {
 
                 <div className=" flex lg:flex-row flex-col    lg:gap-4 relative">
                   <input
-                    className=" pl-5   rounded-full  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
+                    className=" pl-5   rounded-full bg-white  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
                     type="text"
                     defaultValue={user?.displayName}
                     placeholder="User Name"
@@ -150,7 +150,7 @@ const UpdateJob = () => {
                     id=""
                   />
                   <input
-                    className=" pl-5   rounded-full  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
+                    className=" pl-5   rounded-full bg-white  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
                     type="text"
                     placeholder="Salary"
                     defaultValue={salaryRange}
@@ -159,7 +159,7 @@ const UpdateJob = () => {
                   />
 
                   <select
-                    className=" pl-5   rounded-full  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
+                    className=" pl-5   rounded-full bg-white  py-2 lg:py-3 outline-none w-full  border  mb-3 lg:mb-4"
                     type="text"
                     placeholder="Product Type"
                     defaultValue={jobCategory}
@@ -178,7 +178,7 @@ const UpdateJob = () => {
                     <h2 className="text-sm ml-4 mb-1 font-bold">Post Date</h2>
                     <input
                       type="date"
-                      className="pl-5 lg:pl-1    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-3 lg:mb-4"
+                      className="pl-5 lg:pl-1    rounded-full bg-white py-2 lg:py-3 outline-none w-full block border  mb-3 lg:mb-4"
                       name="jobPostingDate"
                       defaultValue={jobPostingDate}
                       id="birthday"
@@ -190,7 +190,7 @@ const UpdateJob = () => {
                       Application Deadline
                     </h2>
                     <DatePicker
-                      className=" pl-5   rounded-full py-2 lg:py-3 outline-none  block border  w-[320px] lg:w-[210px] mb-3 lg:mb-4"
+                      className=" pl-5   rounded-full bg-white py-2 lg:py-3 outline-none  block border  w-[320px] lg:w-[210px] mb-3 lg:mb-4"
                       name="applicationDeadline"
                       defaultValue={applicationDeadline}
                       selected={startDate}
@@ -205,14 +205,14 @@ const UpdateJob = () => {
                     <input
                       type="number"
                       defaultValue={0}
-                      className="pl-2    rounded-full py-2 lg:py-3 outline-none w-full block border  mb-3 lg:mb-4"
+                      className="pl-2    rounded-full bg-white py-2 lg:py-3 outline-none w-full block border  mb-3 lg:mb-4"
                       name="applicants"
                     />
                   </div>
                 </div>
 
                 <textarea
-                  className=" pl-5   rounded-3xl py-3 outline-none w-full block border  mb-3 lg:mb-4"
+                  className=" pl-5   rounded-3xl bg-white py-3 outline-none w-full block border  mb-3 lg:mb-4"
                   type="text"
                   placeholder="About Company"
                   defaultValue={about}
@@ -222,7 +222,7 @@ const UpdateJob = () => {
                   rows="2"
                 ></textarea>
                 <textarea
-                  className=" pl-5 mb-8  rounded-3xl py-3 outline-none w-full block border  "
+                  className=" pl-5 mb-8  rounded-3xl bg-white py-3 outline-none w-full block border  "
                   type="text"
                   placeholder="Job Description"
                   defaultValue={description}
@@ -232,7 +232,7 @@ const UpdateJob = () => {
                   rows="5"
                 ></textarea>
 
-                <button className="px-4  bg-[#E9155B] hover:bg-[#C90044] py-2.5 rounded-full text-[#FFF] text-sm font-Inter font-medium flex items-center gap-2 justify-center">
+                <button className="px-4  bg-[#E9155B] hover:bg-[#C90044] py-2.5 rounded-full  text-[#FFF] text-sm font-Inter font-medium flex items-center gap-2 justify-center">
                   {" "}
                   Update Job{" "}
                   <p className="text-white">
