@@ -7,7 +7,8 @@ const Banner = () => {
         <div className=" h-full flex-1  flex items-center">
           <div className=" ">
             <h2 className=" text-3xl  text-center lg:text-left lg:text-4xl font-Inter font-extrabold uppercase ">
-              find a job the <span className="text-[#E9155B] "> easy way</span>
+              sdfsfsdfsdfsd find a job the{" "}
+              <span className="text-[#E9155B] "> easy way</span>
             </h2>
             <p className="text-center lg:text-left mt-2 lg:mt-6 font-Inter text-[#494e5d]">
               Discover your ideal career fit where your skills, aspirations, and
